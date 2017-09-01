@@ -5,7 +5,10 @@ import { AppComponent } from './app.component';
 import{SharedModule} from './shared-module/shared.module';
 import { HomeComponent } from './components/home/home.component';
 import { TablaPosicionesComponent } from './components/home/tabla-posiciones/tabla-posiciones.component';
-import { NoticiasComponent } from './components/home/noticias/noticias.component';
+import { VerNoticiasComponent } from './components/home/noticias/ver-noticias.component';
+import { EditarNoticiaComponent } from './components/home/noticias/editar-noticia.component';
+import { AgregarNoticiaComponent } from './components/home/noticias/agregar-noticia.component';
+
 import { SliderComponent } from './components/home/slider/slider.component';
 
 @NgModule({
@@ -13,8 +16,10 @@ import { SliderComponent } from './components/home/slider/slider.component';
     AppComponent,
     HomeComponent,
     TablaPosicionesComponent,
-    NoticiasComponent,
-    SliderComponent
+    VerNoticiasComponent,
+    SliderComponent,
+    EditarNoticiaComponent,
+    AgregarNoticiaComponent
   ],
   imports: [
     BrowserModule,

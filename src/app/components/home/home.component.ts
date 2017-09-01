@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import{SliderComponent}from './slider/slider.component';
-import{NoticiasComponent} from './noticias/noticias.component';
+import{AgregarNoticiaComponent} from './noticias/agregar-noticia.component';
 import{TablaPosicionesComponent} from './tabla-posiciones/tabla-posiciones.component';
 @Component({
   selector: 'app-home',
