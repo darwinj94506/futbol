@@ -12,7 +12,7 @@ import{TemporadaComponent} from './components/temporada/temporada.component';
 // import{AdminGuard} from '../services/admin.guard';
 
 const adminRoutes:Routes=[
-  {path:'home',component:HomeComponent},
+  {path:'home',component:HomeComponent},    
   {path:'equipos',component:EquiposComponent},
   {path:'temporada',component:TemporadaComponent},
   {path:'',redirectTo:'home',pathMatch:'full'},
