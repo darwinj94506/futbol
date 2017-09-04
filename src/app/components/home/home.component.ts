@@ -8,8 +8,14 @@ import{TablaPosicionesComponent} from './tabla-posiciones/tabla-posiciones.compo
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-
+  verTabla:boolean=false;
   constructor() { }
+
+
+  verTablaPosiciones(event){
+    this.verTabla=event;
+    console.log(event);
+  }
 
   ngOnInit() {
   }

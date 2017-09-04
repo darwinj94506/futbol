@@ -3,6 +3,9 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 //Componentes 
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { FooterComponent } from './components/footer/footer.component';
+
 import { HomeComponent } from './components/home/home.component';
 import { TablaPosicionesComponent } from './components/home/tabla-posiciones/tabla-posiciones.component';
 import { VerNoticiasComponent } from './components/home/noticias/ver-noticias.component';
@@ -15,7 +18,7 @@ import { CalendarioComponent } from './components/calendario/calendario.componen
 import { TemporadaComponent } from './components/temporada/temporada.component';
 
 //modulo creado
-import {SharedModule} from './shared-module/shared.module';
+// import {SharedModule} from './shared-module/shared.module';
 
 //rutas
 import{RoutingModule} from './app.routing';
@@ -31,12 +34,15 @@ import{RoutingModule} from './app.routing';
     AgregarNoticiaComponent,
     EquiposComponent,
     CalendarioComponent,
-    TemporadaComponent
+    TemporadaComponent,
+    FooterComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
-    SharedModule,
+    // SharedModule,
     RoutingModule
+  
   ],
   providers: [],
   bootstrap: [AppComponent]

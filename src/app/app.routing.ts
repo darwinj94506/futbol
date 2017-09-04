@@ -4,6 +4,7 @@ import{HomeComponent} from './components/home/home.component';
 import{EquiposComponent} from './components/equipos/equipos.component';
 import{TemporadaComponent} from './components/temporada/temporada.component';
 
+
 // import{MainComponent} from './components/main/main.component';
 // import{ListComponent} from './components/list/list.component';
 // import{AddComponent} from './components/add/add.component';
@@ -12,7 +13,7 @@ import{TemporadaComponent} from './components/temporada/temporada.component';
 // import{AdminGuard} from '../services/admin.guard';
 
 const adminRoutes:Routes=[
-  {path:'home',component:HomeComponent},
+  {path:'home',component:HomeComponent},    
   {path:'equipos',component:EquiposComponent},
   {path:'temporada',component:TemporadaComponent},
   {path:'',redirectTo:'home',pathMatch:'full'},
