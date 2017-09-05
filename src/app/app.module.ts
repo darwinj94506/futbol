@@ -25,6 +25,7 @@ import{RoutingModule} from './app.routing';
 import { CategoriasComponent } from './components/categorias/categorias.component';
 import { EstadiosComponent } from './components/estadios/estadios.component';
 import { ReglamentoComponent } from './components/reglamento/reglamento.component';
+import { JugadoresComponent } from './components/jugadores/jugadores.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { ReglamentoComponent } from './components/reglamento/reglamento.componen
     NavbarComponent,
     CategoriasComponent,
     EstadiosComponent,
-    ReglamentoComponent
+    ReglamentoComponent,
+    JugadoresComponent
   ],
   imports: [
     BrowserModule,
