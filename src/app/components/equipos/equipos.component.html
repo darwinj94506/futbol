@@ -1,3 +1,120 @@
-<p>
-  equipos works!
-</p>
+<br><br>
+<div class="container marketing">
+  <div class="row">
+    <div class="col-lg-4 equipo">
+      <div class="card">
+        <div class="card-header">
+          <h3>Delfin Sporting Club</h3>
+        </div>
+        <div class="card-block">
+          <img class="rounded-circle imgcenter" src="assets/popper/docs/images/delfin.png" alt="Generic placeholder image" width="140"
+            height="140">
+          <br>
+          <p class="card-text">Año de Fundación: 2017</p>
+          <p><a class="btn btn-primary" href="#" role="button">Ver más detalles &raquo;</a></p>
+        </div>
+        <div class="card-footer">
+          <small class="text-muted">Presidente: Juan Manuel Zoto Zoto</small>
+          <p>Presidente: Juan Manuel Zoto Zoto</p>
+          <a class="btn btn-warning pull-left" href="#" role="button">Modificar</a>
+          <a class="btn btn-danger pull-right" href="#" role="button">Eliminar</a>
+        </div>
+      </div>
+    </div>
+    <!-- /.col-lg-4 -->
+
+    <div class="col-lg-4 equipo">
+      <div class="card">
+        <div class="card-header">
+          <h3>Delfin Sporting Club</h3>
+        </div>
+        <div class="card-block">
+          <img class="rounded-circle imgcenter" src="assets/popper/docs/images/delfin.png" alt="Generic placeholder image" width="140"
+            height="140">
+          <br>
+          <p class="card-text">Año de Fundación: 2017</p>
+          <p><a class="btn btn-primary" href="#" role="button">Ver más detalles &raquo;</a></p>
+        </div>
+        <div class="card-footer">
+          <small class="text-muted">Presidente: Juan Manuel Zoto Zoto</small>
+          <p>Presidente: Juan Manuel Zoto Zoto</p>
+          <!-- <a class="btn btn-warning pull-left" href="#" role="button">Modificar</a> -->
+          <!-- <a class="btn btn-danger pull-right" href="#" role="button">Eliminar</a> -->
+        </div>
+      </div>
+    </div>
+
+
+    <div class="col-lg-4 equipo" *ngIf="formulario_equipo == true">
+      <div class="card">
+        <div class="card-header">
+          <h3>Crear Nuevo Equipo</h3>
+        </div>
+        <div class="card-block">
+          <a data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample" (click)="ver_registro_equipo($event)">
+                                                   <img id="addequipo" class="rounded-circle imgcenter" src="assets/popper/docs/images/nuevo.jpg" alt="Generic placeholder image" width="140" height="140">
+                                                  </a>
+          <br>
+          <h2><i class="fa fa-hand-o-up" aria-hidden="true"></i></h2>
+          <p class="card-text">Click sobre la Imagen para empezar</p>
+          <br>
+        </div>
+        <div class="card-footer">
+          <small class="text-muted">Presidente: Juan Manuel Zoto Zoto</small>
+          <p>Presidente: Juan Manuel Zoto Zoto</p>
+          <!-- <a class="btn btn-warning pull-left" href="#" role="button">Modificar</a> -->
+          <!-- <a class="btn btn-danger pull-right" href="#" role="button">Eliminar</a> -->
+        </div>
+      </div>
+    </div>
+    <!-- /.col-lg-4 -->
+  </div>
+  <!-- /.row -->
+</div>
+
+<!-- <p>
+  <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+    Link with href
+  </a>
+  <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+    Button with data-target
+  </button>
+</p> -->
+<div class="collapse" id="collapseExample">
+  <div class="row">
+    <div class="col-md-4">
+      <div class="form-group">
+        <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+          <div class="input-group-addon frm-addon" style="width: 2.6rem"><i class="fa fa-user"></i></div>
+          <input type="text" name="name" class="form-control" id="name" placeholder="Cédula de identidad" required autofocus>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-2">
+      <div class="form-control-feedback">
+        <span class="text-danger align-middle">
+    Put name validation error messages here
+        </span>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="form-group">
+        <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+          <div class="input-group-addon frm-addon" style="width: 2.6rem"><i class="fa fa-user"></i></div>
+          <input type="text" name="name" class="form-control" id="name" placeholder="Cédula de identidad" required autofocus>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-2">
+      <div class="form-control-feedback">
+        <span class="text-danger align-middle">
+    <!-- Put name validation error messages here -->
+        </span>
+      </div>
+    </div>
+  </div>
+  <div class="card card-body">
+    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica,
+    craft beer labore wes anderson cred nesciunt sapiente ea proident.
+  </div>
+</div>
