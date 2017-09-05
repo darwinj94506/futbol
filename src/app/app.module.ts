@@ -22,6 +22,9 @@ import { TemporadaComponent } from './components/temporada/temporada.component';
 
 //rutas
 import{RoutingModule} from './app.routing';
+import { CategoriasComponent } from './components/categorias/categorias.component';
+import { EstadiosComponent } from './components/estadios/estadios.component';
+import { ReglamentoComponent } from './components/reglamento/reglamento.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +39,10 @@ import{RoutingModule} from './app.routing';
     CalendarioComponent,
     TemporadaComponent,
     FooterComponent,
-    NavbarComponent
+    NavbarComponent,
+    CategoriasComponent,
+    EstadiosComponent,
+    ReglamentoComponent
   ],
   imports: [
     BrowserModule,
