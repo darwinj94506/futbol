@@ -1,5 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpModule} from '@angular/http';
+
 
 import { AppComponent } from './app.component';
 //Componentes 
@@ -19,6 +21,9 @@ import { TemporadaComponent } from './components/temporada/temporada.component';
 
 //modulo creado
 // import {SharedModule} from './shared-module/shared.module';
+
+//servicios
+import{UserService} from './services/user.service';
 
 //rutas
 import{RoutingModule} from './app.routing';
@@ -48,11 +53,12 @@ import { JugadoresComponent } from './components/jugadores/jugadores.component';
   ],
   imports: [
     BrowserModule,
+    HttpModule,    
     // SharedModule,
     RoutingModule
   
   ],
-  providers: [],
+  providers: [UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
