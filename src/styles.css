@@ -90,3 +90,19 @@ body {
     margin-top: 7rem;
   }
 }
+
+
+
+/*Input de Formularios*/
+.frm-addon{
+    width: 2.6rem !important; 
+    background:#3a57af !important; 
+    color:#fff !important;   
+}
+
+@media(min-width: 768px) {
+  .field-label-responsive {
+    padding-top: .5rem !important;
+    text-align: right !important;
+  }
+}

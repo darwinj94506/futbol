@@ -34,16 +34,4 @@ body{
     border-radius: 5px 5px 0px 0px!important;
 }
 
-.frm-addon{
-    width: 2.6rem; 
-    background:#3a57af; 
-    color:#fff;   
-}
-
-@media(min-width: 768px) {
-  .field-label-responsive {
-    padding-top: .5rem;
-    text-align: right;
-  }
-}
 
