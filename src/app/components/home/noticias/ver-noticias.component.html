@@ -26,22 +26,23 @@
         </ul>
       </nav>
     <hr>
-    <div class="card" *ngFor = "let noticiasencontradas of noticia ">
-      <img class="card-img-top" src="assets/popper/docs/images/noticia1.jpg" alt="Card image cap" height="180" >
+    <div class="card" *ngFor = "let noticiaItem of noticia ">
+      <img class="card-img-top" [src]="noticiaItem.image" alt="Card image cap" height="180" >
       <div class="card-block">
-        <h4 class="card-title">Titulo de la Noticia:{{noticiasencontradas.titulo}}</h4>
-        <p class="card-text">Descripcion:{{noticiasencontradas.descripcion}}
+        <h4 class="card-title">{{noticiaItem.titulo}}</h4>
+        <p class="card-text">Descripcion: 
+          {{noticiaItem.descripcion}}
         </p>
-        <p>Fecha de Publicación:{{noticiasencontradas.fecha_publicacion}} </p>
+        <p>Fecha de Publicación: {{noticiaItem.fecha_publicado}}</p>
       </div>
       <div class="card-footer">
-        <a  class="btn btn-success" (click)="emitirEvento('editarNoticia',noticiasencontradas)">Editar</a>   
+        <a  class="btn btn-success" (click)="emitirEvento('editarNoticia',noticiaItem)">Editar</a>   
         <a  class="btn btn-danger" (click)="eliminarNoticia()">Eliminar</a>
       </div>
     </div>
       <br>
   </div>
-  <!-- <div class="card-footer">
-    Seccion de Noticias
-  </div> -->
+  <div class="card-footer">
+    Seccion de Noticias    
+  </div>
 </div>
