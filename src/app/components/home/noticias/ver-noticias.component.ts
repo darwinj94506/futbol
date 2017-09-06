@@ -1,6 +1,7 @@
 import { Component, OnInit,Output,EventEmitter } from '@angular/core';
 import {Noticia} from '../../../models/noticia.model';
 import {NoticiaService} from '../../../services/noticia.service'
+import{GLOBAL} from '../../../services/global';
 import swal from 'sweetalert2';
 @Component({
   // tslint:disable-next-line:component-selector
@@ -8,10 +9,11 @@ import swal from 'sweetalert2';
   templateUrl: './ver-noticias.component.html'  
 })
 export class VerNoticiasComponent implements OnInit {
+  
+  public url:string;
   //Declarar modelos 
   public noticiaNueva:Noticia;
-  public noticia:Noticia;
-  public noticias:Array<Noticia>;
+  public noticia:Noticia;  
   //Variables de paginación
   public next_page;
   public prev_page;
@@ -25,7 +27,8 @@ export class VerNoticiasComponent implements OnInit {
 	){
     this.pagina=1;
     this.next_page=1;
-    this.prev_page=1;            		    
+    this.prev_page=1; 
+    this.url=GLOBAL.url;           		    
 	}
 
 	ngOnInit(){		 
@@ -82,7 +85,12 @@ export class VerNoticiasComponent implements OnInit {
                       console.log("No hay Noticias Creadas");
                       //this._router.navigate(['/']);
                   } else {
-                      this.noticia = response.mensaje;
+                      this.noticia = response.mensaje;                      
+                      console.log("1"+response.mensaje);
+                      response.mensaje.forEach((element,i) => {                                                                 
+                         this.noticia[i].image=this.url+'noticia/get-image-noticia/'+element.image;
+                      });
+                  
                       let tamaño = response.mensaje.length;
                       if(tamaño == 0){
                         this.pagina=page-2;

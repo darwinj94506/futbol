@@ -3,24 +3,32 @@ import {User} from '../../../models/user.model';
 import {Noticia} from '../../../models/noticia.model';
 import {NoticiaService} from '../../../services/noticia.service'
 import {UserService} from '../../../services/user.service'
+
+import { GLOBAL } from '../../../services/global';
+import { UploadService } from '../../../services/upload.service';
 @Component({
   selector: 'app-agregar-noticia',
-  templateUrl: './agregar-noticia.component.html'
+  templateUrl: './agregar-noticia.component.html',
+  providers: [UserService,UploadService]
 })
 export class AgregarNoticiaComponent implements OnInit {
-
+  public fileSuccess:Boolean;
+  public url: string;
   public srcH:any;
   public identity;
   public token;
   public title: string;
   public noticia_nueva: Noticia;
   constructor(private _US:UserService,						
-		private _noticiaservice : NoticiaService
+    private _noticiaservice : NoticiaService,
+    private _imagenUpload: UploadService
 	){
+    this.url = GLOBAL.url;
+    this.fileSuccess=false;
 		this.title = 'Nueva Noticia';
     this.identity = this._US.getIdentity();
     this.token = _US.getToken();
-		this.noticia_nueva = new Noticia('','Nueva Noticia','Descripción','Observación','','assets/','',false);
+		this.noticia_nueva = new Noticia('','','','','','','',false);
 	}
 
   ngOnInit() {
@@ -32,37 +40,20 @@ export class AgregarNoticiaComponent implements OnInit {
       this.noticia_nueva.usuario = this.identity._id;
       console.log(this.noticia_nueva);
       //Guardar la Noticia:
-        this._noticiaservice.addNoticia(this.token, this.noticia_nueva).subscribe(
-        response => {
-          
-          if(!response.mensaje){
-            //this.alertMessage = 'Error en el servidor';
-            console.log("ERORO fatality");
-          }else{
-            //this.alertMessage = '¡El artista se ha creado correctamente!';
-            //this.artist = response.artist;
-            //this._router.navigate(['/editar-artista', response.artist._id]);
-            console.log("Noticia Guardada");
-          }
-  
-        },
-        error => {
-          var errorMessage = <any>error;
-  
-              if(errorMessage != null){
-                var body = JSON.parse(error._body);
-                //this.alertMessage = body.message;
-  
-                console.log(error);
-              }
-        }	
-      );
+        this._noticiaservice.addNoticia(this.url+'noticia/save', this.noticia_nueva,this.filesToUpdate,this.token,'image')
+        .then(response=>{ console.log(response); });      
   }
 
-
-  subirFileNoticia($event){
-    this.readThis($event.target);
+  public filesToUpdate : Array<File>;
+  subirFileNoticia(fileInput : any){
+      //si fueran check se podrian selecciones varios.
+      this.filesToUpdate = <Array<File>>fileInput.target.files;
+      this.readThis(fileInput.target);
+      
   }
+  // PREVISUALIZACION IMAGEN
+
+  
 
 
   readThis(inputValue: any) : void {

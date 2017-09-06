@@ -26,13 +26,14 @@
         </ul>
       </nav>
     <hr>
-    <div class="card" *ngFor = "let noticiasencontradas of noticia ">
-      <img class="card-img-top" src="assets/popper/docs/images/noticia1.jpg" alt="Card image cap" height="180" >
+    <div class="card" *ngFor = "let noticiaItem of noticia ">
+      <img class="card-img-top" [src]="noticiaItem.image" alt="Card image cap" height="180" >
       <div class="card-block">
-        <h4 class="card-title">Titulo de la Noticia</h4>
+        <h4 class="card-title">{{noticiaItem.titulo}}</h4>
         <p class="card-text">Descripcion: 
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae doloremque quam tenetur ratione et, tempora consectetur eum facilis fugit ipsa? Reprehenderit temporibus natus, harum magni officia quam nesciunt? Veniam, nisi? Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        <p>Fecha de Publicación: </p>
+          {{noticiaItem.descripcion}}
+        </p>
+        <p>Fecha de Publicación: {{noticiaItem.fecha_publicado}}</p>
       </div>
       <div class="card-footer">
         <a  class="btn btn-danger" (click)="eliminarNoticia()">Eliminar</a> 
@@ -41,6 +42,6 @@
       <br>
   </div>
   <div class="card-footer">
-    Seccion de Noticias
+    Seccion de Noticias    
   </div>
 </div>
