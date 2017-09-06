@@ -37,8 +37,8 @@ export class AgregarNoticiaComponent implements OnInit {
       this.noticia_nueva.usuario = this.identity._id;
       console.log(this.noticia_nueva);
       //Guardar la Noticia:
-        this._noticiaservice.addNoticia(this.url+'noticia/save', this.noticia_nueva,this.filesToUpdate,this.token,'image')
-        .then(response=>{ console.log(response); });      
+        // this._noticiaservice.addNoticia(this.url+'noticia/save', this.noticia_nueva,this.filesToUpdate,this.token,'image')
+        // .then(response=>{ console.log(response); });      
   }
 
   public filesToUpdate : Array<File>;
