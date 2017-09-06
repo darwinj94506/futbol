@@ -5,9 +5,10 @@ import{GLOBAL} from '../../../services/global';
 import swal from 'sweetalert2';
 @Component({
   // tslint:disable-next-line:component-selector
-  selector: 'ver-app-noticias',
-  templateUrl: './ver-noticias.component.html'  
+  selector: 'app-ver-noticias',
+  templateUrl: './ver-noticias.component.html',  
 })
+
 export class VerNoticiasComponent implements OnInit {
   
   public url:string;
@@ -35,16 +36,15 @@ export class VerNoticiasComponent implements OnInit {
     this.traerTresNoticias(this.pagina);
   }
 
-  emitirEvento(){
-    this.mostrar.emit({
-      'verNoticiaNueva':this.verNoticiaNueva
-    });    
+  emitirEvento(elementoSeleccionado:string, noticia=null){
+      this.mostrar.emit({
+        'mensaje':{
+          'componente':elementoSeleccionado,
+          'noticiaEditar':noticia
+        }
+      });
   }
-
   
-
-
-
   sumar(){
     this.pagina = this.pagina+1;
     console.log(this.pagina);
@@ -104,7 +104,7 @@ export class VerNoticiasComponent implements OnInit {
               error => {
                   var errorMessage = <any>error;
                   if (errorMessage != null) {
-                      var body = JSON.parse(error._body);
+                      // var body = JSON.parse(error._body);
                       //this.alertMessage = body.message;
                       console.log(error);
                   }

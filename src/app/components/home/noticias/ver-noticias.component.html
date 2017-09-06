@@ -4,7 +4,7 @@
   </div>
   <div class="card-block">
     <br>
-    <button (click)="emitirEvento()" class="btn btn-primary">
+    <button (click)="emitirEvento('agregarNoticia')" class="btn btn-primary">
       <!-- <a  href="#" class="btn btn-primary"> -->
         NUEVA NOTICIA
       <!-- </a> -->
@@ -36,7 +36,8 @@
         <p>Fecha de Publicación: {{noticiaItem.fecha_publicado}}</p>
       </div>
       <div class="card-footer">
-        <a  class="btn btn-danger" (click)="eliminarNoticia()">Eliminar</a> 
+        <a  class="btn btn-success" (click)="emitirEvento('editarNoticia',noticiaItem)">Editar</a>   
+        <a  class="btn btn-danger" (click)="eliminarNoticia()">Eliminar</a>
       </div>
     </div>
       <br>

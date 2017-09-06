@@ -10,12 +10,13 @@ import { GLOBAL } from '../../../services/global';
   templateUrl: './agregar-noticia.component.html'  
 })
 export class AgregarNoticiaComponent implements OnInit {
+  public title:string;
+
   public fileSuccess:Boolean;
   public url: string;
   public srcH:any;
   public identity;
   public token;
-  public title: string;
   public noticia_nueva: Noticia;
   constructor(private _US:UserService,						
     private _noticiaservice : NoticiaService,    
@@ -51,7 +52,6 @@ export class AgregarNoticiaComponent implements OnInit {
   // PREVISUALIZACION IMAGEN
 
   
-
 
   readThis(inputValue: any) : void {
     var file:File = inputValue.files[0]; 

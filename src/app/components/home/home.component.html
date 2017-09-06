@@ -1,13 +1,13 @@
 <app-slider></app-slider>
 <div class="row posiciones">
-        <div class="col-lg-8 tabla_posiciones">
-                <app-tabla-posiciones *ngIf="!verTabla"></app-tabla-posiciones>
-
-                <app-agregar-noticia *ngIf="verTabla"></app-agregar-noticia>
+        <div class="col-lg-8 tabla_posiciones" [ngSwitch]="verElemento">
+                <app-tabla-posiciones *ngSwitchCase="'tabla'"></app-tabla-posiciones>
+                <app-agregar-noticia *ngSwitchCase="'agregarNoticia'"></app-agregar-noticia>
+                <app-editar-noticia [noticia_nueva]="noticia_editar" *ngSwitchCase="'editarNoticia'" ></app-editar-noticia>     
                 
         </div>
         <div class="col-lg-4 tabla_noticias">
-                <ver-app-noticias (mostrar)="verTablaPosiciones($event)"></ver-app-noticias>
+                <app-ver-noticias (mostrar)="mostrarElemento($event,noticiaEditar)" ></app-ver-noticias>
         </div>
 </div>
 
