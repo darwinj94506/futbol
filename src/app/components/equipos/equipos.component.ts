@@ -1,4 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component,DoCheck, OnInit } from '@angular/core';
+import{ UserService } from '../../services/user.service';
+import{ User } from '../../models/user.model';
+import{ Router, ActivatedRoute, Params } from '@angular/router';
+import swal from 'sweetalert2';
 
 @Component({
   selector: 'app-equipos',
@@ -8,10 +12,24 @@ import { Component, OnInit } from '@angular/core';
 export class EquiposComponent implements OnInit {
   public formulario_equipo = true;
   public nombre_escudo = "Imagen";
-  constructor() { }
+  public identity;
+  public token;
+
+  constructor(
+    private _userService: UserService,
+    private _route:ActivatedRoute, 
+    private _router:Router) {
+
+   }
 
   ngOnInit() {
   }
+
+  ngDoCheck(){
+    this.identity=this._userService.getIdentity();
+    this.token = this._userService.getToken();
+  }
+
   ver_registro_equipo(event){
     this.formulario_equipo = false;
   }

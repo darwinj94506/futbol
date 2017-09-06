@@ -16,36 +16,13 @@
         <div class="card-footer">
           <small class="text-muted">Presidente: Juan Manuel Zoto Zoto</small>
           <p>Presidente: Juan Manuel Zoto Zoto</p>
-          <a class="btn btn-warning pull-left" href="#" role="button">Modificar</a>
-          <a class="btn btn-danger pull-right" href="#" role="button">Eliminar</a>
-        </div>
-      </div>
-    </div>
-    <!-- /.col-lg-4 -->
-
-    <div class="col-lg-4 equipo">
-      <div class="card">
-        <div class="card-header">
-          <h3>Delfin Sporting Club</h3>
-        </div>
-        <div class="card-block">
-          <img class="rounded-circle imgcenter" src="assets/popper/docs/images/delfin.png" alt="Generic placeholder image" width="140"
-            height="140">
-          <br>
-          <p class="card-text">Año de Fundación: 2017</p>
-          <p><a class="btn btn-primary" href="#" role="button">Ver más detalles &raquo;</a></p>
-        </div>
-        <div class="card-footer">
-          <small class="text-muted">Presidente: Juan Manuel Zoto Zoto</small>
-          <p>Presidente: Juan Manuel Zoto Zoto</p>
-          <!-- <a class="btn btn-warning pull-left" href="#" role="button">Modificar</a> -->
-          <!-- <a class="btn btn-danger pull-right" href="#" role="button">Eliminar</a> -->
+          <a *ngIf="identity" class="btn btn-warning pull-left" href="#" role="button">Modificar</a>
+          <a *ngIf="identity" class="btn btn-danger pull-right" href="#" role="button">Eliminar</a>
         </div>
       </div>
     </div>
 
-
-    <div class="col-lg-4 equipo" *ngIf="formulario_equipo == true">
+    <div class="col-lg-4 equipo" *ngIf="formulario_equipo == true && identity">
       <div class="card">
         <div class="card-header">
           <h3>Crear Nuevo Equipo</h3>
