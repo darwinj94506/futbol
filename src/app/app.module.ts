@@ -28,6 +28,7 @@ import { TemporadaComponent } from './components/temporada/temporada.component';
 //servicios
 import{UserService} from './services/user.service';
 import{NoticiaService} from './services/noticia.service';
+import {EquipoService} from './services/equipo.service';
 
 //rutas
 import{RoutingModule} from './app.routing';
@@ -63,7 +64,7 @@ import { JugadoresComponent } from './components/jugadores/jugadores.component';
     RoutingModule
   
   ],
-  providers: [UserService,NoticiaService],
+  providers: [UserService,NoticiaService,EquipoService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
