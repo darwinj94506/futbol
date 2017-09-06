@@ -57,8 +57,8 @@ export class NavbarComponent implements OnInit,DoCheck {
                 //guardar el token
                 localStorage.setItem('token',this.token);
                 this.status='success';
-                alert('se logueo correctamente');
-                // this._router.navigate(['/home']);
+                this.user=new User('','','','','','','','','');
+                this._router.navigate(['/']);
                 
                 
               }

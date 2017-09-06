@@ -5,7 +5,7 @@ import swal from 'sweetalert2';
 @Component({
   // tslint:disable-next-line:component-selector
   selector: 'ver-app-noticias',
-  templateUrl: './ver-noticias.component.html',  
+  templateUrl: './ver-noticias.component.html'  
 })
 export class VerNoticiasComponent implements OnInit {
   //Declarar modelos 
