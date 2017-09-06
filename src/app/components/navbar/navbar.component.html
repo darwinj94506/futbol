@@ -9,7 +9,7 @@
         <a class="nav-link" [routerLink]="['home']">Inicio <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" [routerLink]="['temporada']">Temporada</a>
+        <a class="nav-link" *ngIf="identity" [routerLink]="['temporada']">Temporada</a>
       </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" [routerLink]="['categorias']" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Categorias</a>

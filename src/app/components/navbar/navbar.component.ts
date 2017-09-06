@@ -2,7 +2,7 @@ import { Component,DoCheck, OnInit } from '@angular/core';
 import{UserService} from '../../services/user.service';
 import{User} from '../../models/user.model';
 import{Router,ActivatedRoute,Params} from '@angular/router';
-
+import swal from 'sweetalert2';
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
@@ -57,8 +57,8 @@ export class NavbarComponent implements OnInit,DoCheck {
                 //guardar el token
                 localStorage.setItem('token',this.token);
                 this.status='success';
-                alert('se logueo correctamente');
-                // this._router.navigate(['/home']);
+                this.user=new User('','','','','','','','','');
+                this._router.navigate(['/']);
                 
                 
               }
@@ -80,7 +80,11 @@ export class NavbarComponent implements OnInit,DoCheck {
       }
     );
   }
-                
-        
+   
+ 
+
+
+
+
 
 }

@@ -11,14 +11,16 @@ import{TablaPosicionesComponent} from './tabla-posiciones/tabla-posiciones.compo
 })
 export class HomeComponent implements OnInit {
   public verElemento:string="tabla";
+  public noticia_editar:any;
   constructor() { }
-
-
+  
   mostrarElemento(event){
-    this.verElemento=event.componente;
+    this.verElemento=event.mensaje.componente;
+    this.noticia_editar=event.mensaje.noticiaEditar;
+    console.log("XXXXXXXXXXXXXXXXXXXXXXXXXXX");
+    console.log(this.noticia_editar);    
     console.log(event);
   }
-
 
   ngOnInit() {
   }

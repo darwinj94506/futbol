@@ -12,43 +12,34 @@
     <nav aria-label="navigation" >
         <ul class="pagination justify-content-center">
           <li class="page-item">
-            <a class="page-link" href="#" aria-label="Previous">
-              <span aria-hidden="true">&laquo;</span>
+            <a class="page-link"  (click)="restar()" aria-label="Previous">
+              <span aria-hidden="true"  >&laquo;</span>
               <span class="sr-only">Previous</span>
             </a>
           </li>
           <li class="page-item">
-            <a class="page-link" href="#" aria-label="Next">
-              <span aria-hidden="true">&raquo;</span>
+            <a class="page-link" (click)="sumar()" aria-label="Next">
+              <span aria-hidden="true" >&raquo;</span>
               <span class="sr-only">Next</span>
             </a>
           </li>
         </ul>
       </nav>
     <hr>
-    <div class="card" *ngFor="let noticia of noticias">
+    <div class="card" *ngFor = "let noticiasencontradas of noticia ">
       <img class="card-img-top" src="assets/popper/docs/images/noticia1.jpg" alt="Card image cap" height="180" >
       <div class="card-block">
-        <h4 class="card-title">Titulo de la Noticia</h4>
-        <p class="card-text">Descripcion: 
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae doloremque quam tenetur ratione et, tempora consectetur eum facilis fugit ipsa? Reprehenderit temporibus natus, harum magni officia quam nesciunt? Veniam, nisi? Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        <p>Fecha de Publicación: </p>
+        <h4 class="card-title">Titulo de la Noticia:{{noticiasencontradas.titulo}}</h4>
+        <p class="card-text">Descripcion:{{noticiasencontradas.descripcion}}
+        </p>
+        <p>Fecha de Publicación:{{noticiasencontradas.fecha_publicacion}} </p>
       </div>
       <div class="card-footer">
-        <a  class="btn btn-success" (click)="emitirEvento('editarNoticia')">Editar</a>   
+        <a  class="btn btn-success" (click)="emitirEvento('editarNoticia',noticiasencontradas)">Editar</a>   
         <a  class="btn btn-danger" (click)="eliminarNoticia()">Eliminar</a>
       </div>
     </div>
-    <!-- <br> -->
-    <!-- <div class="card">
-        <img class="card-img-top" src="assets/popper/docs/images/noticias2.jpg" alt="Card image cap" height="180">
-        <div class="card-block">
-          <h4 class="card-title">Card title</h4>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
-        </div>
-    </div>
-    <br> -->
+      <br>
   </div>
   <!-- <div class="card-footer">
     Seccion de Noticias

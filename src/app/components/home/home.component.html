@@ -3,11 +3,11 @@
         <div class="col-lg-8 tabla_posiciones" [ngSwitch]="verElemento">
                 <app-tabla-posiciones *ngSwitchCase="'tabla'"></app-tabla-posiciones>
                 <app-agregar-noticia *ngSwitchCase="'agregarNoticia'"></app-agregar-noticia>
-                <app-editar-noticia *ngSwitchCase="'editarNoticia'" ></app-editar-noticia>     
+                <app-editar-noticia [noticia_nueva]="noticia_editar" *ngSwitchCase="'editarNoticia'" ></app-editar-noticia>     
                 
         </div>
         <div class="col-lg-4 tabla_noticias">
-                <app-ver-noticias (mostrar)="mostrarElemento($event)" ></app-ver-noticias>
+                <app-ver-noticias (mostrar)="mostrarElemento($event,noticiaEditar)" ></app-ver-noticias>
         </div>
 </div>
 
