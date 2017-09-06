@@ -4,7 +4,6 @@ import 'rxjs/add/operator/map';
 import{Observable} from 'rxjs/Observable';
 import{GLOBAL} from './global';
 
-
 @Injectable()
 export class UserService {
   public url:string;
@@ -18,19 +17,17 @@ export class UserService {
   register(user_to_register) {
     let params=JSON.stringify(user_to_register);
     let headers=new Headers({'Content-Type':'application/json'});
-    return this._http.post(this.url+'saveUser',params, {headers:headers})
+    return this._http.post(this.url+'usuario/saveUser',params, {headers:headers})
                       .map( res => res.json());
     }
 
   signup(user_to_login,gettoken=null){
     if(gettoken !=null){
-      user_to_login.gettoken=gettoken;
+      user_to_login.gethash=gettoken;
     }
     let params=JSON.stringify(user_to_login);
     let headers = new Headers({'Content-Type':'application/json'});
-    return this._http.post(this.url+'loginUser',params,{headers:headers})
+    return this._http.post(this.url+'usuario/login',params,{headers:headers})
                     .map(res=>res.json());
   }
-
-
 }
