@@ -5,7 +5,6 @@ import {NoticiaService} from '../../../services/noticia.service'
 import {UserService} from '../../../services/user.service'
 
 import { GLOBAL } from '../../../services/global';
-import { UploadService } from '../../../services/upload.service';
 @Component({
   selector: 'app-agregar-noticia',
   templateUrl: './agregar-noticia.component.html'  
