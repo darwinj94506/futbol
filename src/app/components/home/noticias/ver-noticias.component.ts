@@ -2,27 +2,34 @@ import { Component, OnInit,Output,EventEmitter } from '@angular/core';
 import swal from 'sweetalert2';
 @Component({
   // tslint:disable-next-line:component-selector
-  selector: 'ver-app-noticias',
+  selector: 'app-ver-noticias',
   templateUrl: './ver-noticias.component.html',  
 })
 export class VerNoticiasComponent implements OnInit {
   
-
+  public noticias:string [] =['1','2','3'];
 
   @Output() mostrar=new EventEmitter();
-  verNoticiaNueva:boolean=true;
+  @Output() verEditar=new EventEmitter();
+  
   constructor() {    
    }
 
   ngOnInit() {
   }
-  emitirEvento(){
+
+  emitirEvento(elementoSeleccionado:string){
     this.mostrar.emit({
-      'verNoticiaNueva':this.verNoticiaNueva
+      'componente':elementoSeleccionado
     });
   }
 
-
+  // emitirEditarNoticia(){
+  //   console.log("presionado emitraeditar");
+  //   this.verEditar.emit({
+  //     'verEditarNoticia':true
+  //   });
+  // }
 
   eliminarNoticia(){
     console.log("Eliminando...");

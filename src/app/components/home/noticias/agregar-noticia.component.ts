@@ -5,9 +5,12 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './agregar-noticia.component.html'
 })
 export class AgregarNoticiaComponent implements OnInit {
+  public title:string;
 
   public srcH:any;
-  constructor() { }
+  constructor() { 
+    this.title="Agregar noticia";
+  }
 
   ngOnInit() {
   }
@@ -15,7 +18,6 @@ export class AgregarNoticiaComponent implements OnInit {
   subirFileNoticia($event){
     this.readThis($event.target);
   }
-
 
   readThis(inputValue: any) : void {
     var file:File = inputValue.files[0]; 
