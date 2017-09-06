@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component,DoCheck, OnInit } from '@angular/core';
 import{UserService} from '../../services/user.service';
 import{User} from '../../models/user.model';
 import{Router,ActivatedRoute,Params} from '@angular/router';
@@ -8,7 +8,7 @@ import swal from 'sweetalert2';
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css']
 })
-export class NavbarComponent implements OnInit {
+export class NavbarComponent implements OnInit,DoCheck {
 
   public verIniciarSesion:boolean=true;
 
@@ -25,6 +25,16 @@ export class NavbarComponent implements OnInit {
 
   ngOnInit() {
   }
+
+  ngDoCheck(){
+    this.identity=this._US.getIdentity();
+  }
+  logout(){
+    localStorage.clear();
+    this.identity=null;
+    // this._router.navigate(['/']);
+  }
+
 
  onSubmit(){
    this._US.signup(this.user).subscribe(
@@ -46,8 +56,9 @@ export class NavbarComponent implements OnInit {
               }else{
                 //guardar el token
                 localStorage.setItem('token',this.token);
-                this.status='success';                                 
-                // this._router.navigate(['/']);
+                this.status='success';
+                alert('se logueo correctamente');
+                // this._router.navigate(['/home']);
                 
                 
               }

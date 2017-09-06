@@ -30,7 +30,7 @@ export class UserService {
     return this._http.post(this.url+'usuario/login',params,{headers:headers})
                     .map(res=>res.json());
   }
-  
+
   getIdentity(){
     let identity=JSON.parse(localStorage.getItem('identity'));
     if(identity!="undefined"){
