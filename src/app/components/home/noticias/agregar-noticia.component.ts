@@ -8,8 +8,7 @@ import { GLOBAL } from '../../../services/global';
 import { UploadService } from '../../../services/upload.service';
 @Component({
   selector: 'app-agregar-noticia',
-  templateUrl: './agregar-noticia.component.html',
-  providers: [UserService,UploadService]
+  templateUrl: './agregar-noticia.component.html'  
 })
 export class AgregarNoticiaComponent implements OnInit {
   public fileSuccess:Boolean;
@@ -20,8 +19,7 @@ export class AgregarNoticiaComponent implements OnInit {
   public title: string;
   public noticia_nueva: Noticia;
   constructor(private _US:UserService,						
-    private _noticiaservice : NoticiaService,
-    private _imagenUpload: UploadService
+    private _noticiaservice : NoticiaService,    
 	){
     this.url = GLOBAL.url;
     this.fileSuccess=false;
