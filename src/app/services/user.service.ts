@@ -17,7 +17,7 @@ export class UserService {
   register(user_to_register) {
     let params=JSON.stringify(user_to_register);
     let headers=new Headers({'Content-Type':'application/json'});
-    return this._http.post(this.url+'saveUser',params, {headers:headers})
+    return this._http.post(this.url+'usuario/saveUser',params, {headers:headers})
                       .map( res => res.json());
     }
 
@@ -27,7 +27,7 @@ export class UserService {
     }
     let params=JSON.stringify(user_to_login);
     let headers = new Headers({'Content-Type':'application/json'});
-    return this._http.post(this.url+'loginUser',params,{headers:headers})
+    return this._http.post(this.url+'usuario/login',params,{headers:headers})
                     .map(res=>res.json());
   }
 }
