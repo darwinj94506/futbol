@@ -36,6 +36,8 @@ import { CategoriasComponent } from './components/categorias/categorias.componen
 import { EstadiosComponent } from './components/estadios/estadios.component';
 import { ReglamentoComponent } from './components/reglamento/reglamento.component';
 import { JugadoresComponent } from './components/jugadores/jugadores.component';
+import { ListaTemporadaComponent } from './components/temporada/lista-temporada/lista-temporada.component';
+import { VerTemporadaComponent } from './components/temporada/ver-temporada/ver-temporada.component';
 
 @NgModule({
   declarations: [
@@ -54,7 +56,9 @@ import { JugadoresComponent } from './components/jugadores/jugadores.component';
     CategoriasComponent,
     EstadiosComponent,
     ReglamentoComponent,
-    JugadoresComponent
+    JugadoresComponent,
+    ListaTemporadaComponent,
+    VerTemporadaComponent
   ],
   imports: [
     BrowserModule,
