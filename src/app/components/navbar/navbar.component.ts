@@ -61,11 +61,13 @@ export class NavbarComponent implements OnInit, DoCheck {
                 this.status = 'success';
                 this.user = new User('', '', '', '', '', '', '', '', '');
               
-                swal(
-                  'Acceso Confirmado',
-                  '',
-                  'success'
-                ).then(()=>{
+                swal({
+                  title:'Acceso Confirmado',                  
+                  type:'success',
+                  showConfirmButton: false,                  
+                  timer: 2000
+                }
+                ).then(()=>{},(d)=>{
                   location.reload();
                 });
 
