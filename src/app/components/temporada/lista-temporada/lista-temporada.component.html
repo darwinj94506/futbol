@@ -8,13 +8,19 @@
         Craear Nueva Temporada
     </button>
     <hr>
-    <div class="card">
+    <div class="card" *ngFor="let item of temporadas">
       <div class="card-block">
-        <h4 class="card-title">Titulo</h4>
+        <h4 class="card-title">{{item.nombre_temporada}}</h4>
         <p>
-          <strong>Fecha de Inicio: </strong>2017<br>
-          <strong>Fecha Fin: </strong>2017
+          <strong>Fecha de Inicio: {{item.fecha_inicio}} </strong><br>
+          <strong>Fecha Fin:{{item.fecha_fin}} </strong>
         </p>
+      <div *ngIf="(item.estado_temporada) == false">
+          <p>Temporada marcada como actual: <i class="fa fa-times" aria-hidden="true"></i></p>
+      </div>
+      <div *ngIf="(item.estado_temporada) == true">
+          <p>Temporada marcada como actual: <i class="fa fa-check" aria-hidden="true"></i></p>
+      </div>
       </div>
       <div class="card-footer">
         <button class="btn btn-success float-left">Editar</button>   
