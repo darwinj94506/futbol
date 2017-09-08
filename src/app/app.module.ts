@@ -36,6 +36,9 @@ import { CategoriasComponent } from './components/categorias/categorias.componen
 import { EstadiosComponent } from './components/estadios/estadios.component';
 import { ReglamentoComponent } from './components/reglamento/reglamento.component';
 import { JugadoresComponent } from './components/jugadores/jugadores.component';
+import { NuevoPersonalComponent } from './components/jugadores/nuevo-personal/nuevo-personal.component';
+import { SeccionEquipoComponent } from './components/jugadores/seccion-equipo/seccion-equipo.component';
+import { SeccionPersonalEquipoComponent } from './components/jugadores/seccion-personal-equipo/seccion-personal-equipo.component';
 
 @NgModule({
   declarations: [
@@ -54,7 +57,10 @@ import { JugadoresComponent } from './components/jugadores/jugadores.component';
     CategoriasComponent,
     EstadiosComponent,
     ReglamentoComponent,
-    JugadoresComponent
+    JugadoresComponent,
+    NuevoPersonalComponent,
+    SeccionEquipoComponent,
+    SeccionPersonalEquipoComponent
   ],
   imports: [
     BrowserModule,

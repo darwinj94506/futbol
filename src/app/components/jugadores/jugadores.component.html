@@ -1,3 +1,25 @@
-<p>
-  jugadores works!
-</p>
+<div class="row posiciones">
+        <!-- <div class="col-lg-8 tabla_posiciones" [ngSwitch]="verElemento"> -->
+        <div class="col-lg-8 tabla_posiciones" >
+                                        
+                <!-- <app-seccion-equipo *ngSwitchCase="'tabla'"></app-seccion-equipo> -->
+                <!-- <app-agregar-noticia *ngSwitchCase="'agregarNoticia'"></app-agregar-noticia> -->
+                <!-- <app-editar-noticia [noticia_nueva]="noticia_editar" *ngSwitchCase="'editarNoticia'" ></app-editar-noticia>      -->
+                <app-seccion-equipo></app-seccion-equipo>
+        </div>
+        <div class="col-lg-4 tabla_noticias">
+                <!-- <app-ver-noticias (mostrar)="mostrarElemento($event,noticiaEditar)" ></app-ver-noticias> -->
+                
+                <app-seccion-personal-equipo></app-seccion-personal-equipo>
+                
+        </div>
+</div>
+<div class="row">
+  <div class="col-lg-8">
+      <app-nuevo-personal></app-nuevo-personal>
+  </div>
+
+</div>
+
+<hr class="featurette-divider">
+
