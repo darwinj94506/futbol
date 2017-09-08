@@ -1,6 +1,8 @@
-import { Component, OnInit,Output,EventEmitter } from '@angular/core';
+import { Observable } from 'rxjs/Observable';
+import { Component, OnInit,Input,Output,EventEmitter } from '@angular/core';
 import {Noticia} from '../../../models/noticia.model';
 import {NoticiaService} from '../../../services/noticia.service'
+import {UserService} from '../../../services/user.service'
 import{GLOBAL} from '../../../services/global';
 import swal from 'sweetalert2';
 @Component({
@@ -12,6 +14,8 @@ import swal from 'sweetalert2';
 export class VerNoticiasComponent implements OnInit {
   
   public url:string;
+  public identity;
+  public token;
   //Declarar modelos 
   public noticiaNueva:Noticia;
   public noticia:Noticia;  
@@ -19,28 +23,38 @@ export class VerNoticiasComponent implements OnInit {
   public next_page;
   public prev_page;
   public pagina=1;
+  public srcItem:Array<String>;
 
   @Output() mostrar=new EventEmitter();
+  @Input('notificacion') 
+  set notificacion(value: Noticia) {
+    this.traerTresNoticias(1);
+  }
   verNoticiaNueva:boolean=true;
 
-	constructor(    		    
+	constructor( 
+    private _US:UserService,   		    
     private _noticiaservice : NoticiaService
 	){
     this.pagina=1;
     this.next_page=1;
     this.prev_page=1; 
-    this.url=GLOBAL.url;           		    
+    this.url=GLOBAL.url; 
+    this.identity = this._US.getIdentity();
+    this.token = _US.getToken();  
+    this.srcItem=new Array();        		    
 	}
 
 	ngOnInit(){		 
-    this.traerTresNoticias(this.pagina);
+    this.traerTresNoticias(this.pagina);    
   }
 
-  emitirEvento(elementoSeleccionado:string, noticia=null){
+  emitirEvento(elementoSeleccionado:string, noticia=null,srcItem){
       this.mostrar.emit({
         'mensaje':{
           'componente':elementoSeleccionado,
-          'noticiaEditar':noticia
+          'noticiaEditar':noticia,
+          'srcItem':srcItem
         }
       });
   }
@@ -52,28 +66,29 @@ export class VerNoticiasComponent implements OnInit {
   }
   restar(){
     this.pagina = this.pagina-1;
-    if(this.pagina == 0){
+    if(this.pagina <= 0){
       this.pagina=1;
     }
     console.log(this.pagina);
     this.traerTresNoticias(this.pagina);
   }
 
-  getNoticias(page){
-    if(!page){
-        page = 1;
-    }else{
-        //this.next_page = page+1;
-        //this.prev_page = page-1;
-        //controlar page negativo
+  // getNoticias(page){
+  //   if(!page){
+  //       page = 1;
+  //   }else{
+  //       this.next_page = page+1;
+  //       this.prev_page = page-1;
+  //       // controlar page negativo
 
-        if(this.prev_page == 0){
-            this.prev_page=1;
-        }
-    }
-    this.traerTresNoticias(page);
+  //       if(this.prev_page <= 0){
+  //           this.prev_page=1;
+  //           page=1;
+  //       }
+  //   }
+  //   this.traerTresNoticias(page);
 
-  }
+  // }
 
 
   traerTresNoticias(page){
@@ -87,8 +102,17 @@ export class VerNoticiasComponent implements OnInit {
                   } else {
                       this.noticia = response.mensaje;                      
                       console.log("1"+response.mensaje);
-                      response.mensaje.forEach((element,i) => {                                                                 
-                         this.noticia[i].image=this.url+'noticia/get-image-noticia/'+element.image;
+                      response.mensaje.forEach((element,i) => { 
+                        if(element.image!=null && element.image!=undefined && element.image!='')                                                                                          
+                          {
+                            console.log("holaaaaa src");
+                            this.srcItem[i]=this.url+'noticia/get-image-noticia/'+element.image;
+                            this.noticia[i].image=element.image;}
+                        else
+                          {
+                            console.log("holaaaaa src2");
+                            this.srcItem[i]=this.url+'noticia/get-image-noticia/default.jpg';
+                            this.noticia[i].image='default.jpg';}
                       });
                   
                       let tamaño = response.mensaje.length;
@@ -113,8 +137,9 @@ export class VerNoticiasComponent implements OnInit {
   }
 
 
-  eliminarNoticia(){
+  eliminarNoticia(noticiaItem){
     console.log("Eliminando...");
+    let ctx=this;
     swal({
       title: '¿Está usted seguro?',
       text: "¡Usted no será capaz de revertir esto!",
@@ -124,12 +149,25 @@ export class VerNoticiasComponent implements OnInit {
       cancelButtonColor: '#d33',
       confirmButtonText: 'Si, Eliminar Noticia!'
     }).then(function () {
-
-      swal(
-        '¡Eliminado!',
-        'La noticia ha sido eliminada con exito.',
-        'success'
-      )
+      ctx._noticiaservice.deleteNoticia(ctx.token,noticiaItem._id)
+      .subscribe(res=>{
+        if(res){
+          console.log(res);
+          swal(
+            '¡Eliminado!',
+            'La noticia ha sido eliminada con exito.',
+            'success'
+          )
+          ctx.traerTresNoticias(1);
+        }else{
+          swal(
+            'Oops...',
+            '¡Algo salio mal, pruebe despues de un momento!',
+            'error'
+          )
+          console.log("La noticia no pudo ser eliminada, intente de nuevo");
+        }
+      });      
     })
   }
 

@@ -33,6 +33,7 @@ export class NavbarComponent implements OnInit, DoCheck {
   logout() {
     localStorage.clear();
     this.identity = null;
+    location.reload();
     // this._router.navigate(['/']);
   }
 
@@ -60,13 +61,17 @@ export class NavbarComponent implements OnInit, DoCheck {
                 this.status = 'success';
                 this.user = new User('', '', '', '', '', '', '', '', '');
               
-                swal(
-                  'Acceso Confirmado',
-                  '',
-                  'success'
-                );
+                swal({
+                  title:'Acceso Confirmado',                  
+                  type:'success',
+                  showConfirmButton: false,                  
+                  timer: 2000
+                }
+                ).then(()=>{},(d)=>{
+                  location.reload();
+                });
 
-                this._router.navigate(['/']);
+                // this._router.navigate(['/']);
               }
             },
             error => {
