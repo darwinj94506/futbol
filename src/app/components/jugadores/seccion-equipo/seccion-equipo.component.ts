@@ -10,6 +10,8 @@ export class SeccionEquipoComponent implements OnInit,DoCheck {
 
   public equipos:Equipo[];
   public equipo;
+  private selectUndefinedOptionValue:any;
+  
 
   @Output() mostrar=new EventEmitter();
   
