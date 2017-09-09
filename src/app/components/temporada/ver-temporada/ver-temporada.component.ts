@@ -19,16 +19,22 @@ export class VerTemporadaComponent implements OnInit {
   // tslint:disable-next-line:no-input-rename
   @Input('valor') mostrar_formualrio_nuevo: boolean;
 
+  public titulo ="Crear Temporada Nueva";
   public url: string;
   public filesToUpload: Array<File>;
   public identity;
   public token;
+  public pdfSubido = false;
 
   public nombre_documento = "Reglamento";
   public validarTemporadas: boolean;
   public temporadas: Temporada[];
   public temporada_nueva: Temporada;
+  public temporada_actual: Temporada;
   public a: any;
+
+  //para radio button
+  public estado_readio_button = false;
 
   constructor(
     private _userService: UserService,
@@ -61,6 +67,12 @@ export class VerTemporadaComponent implements OnInit {
           this.validarTemporadas = true;
           this.temporadas = response;
           console.log(this.temporadas);
+          this.temporadas.forEach(element => {
+            if(element.estado_temporada){
+              this.temporada_actual = element;
+              console.log(this.temporada_actual);
+            }
+          });
         }
       },
       error => {
@@ -83,9 +95,16 @@ export class VerTemporadaComponent implements OnInit {
   guardarTemporada() {
     this.temporada_nueva.id_usuario = this.identity._id;
     console.log(this.temporada_nueva);
-    this._temporadaService.addTemporada(this.url + 'temporada/guardar', 
-    this.temporada_nueva, this.filesToUpload, this.token, 'url_reglamento_temporada')
-    .then(response=>{ console.log(response); });
-  }
+    this._temporadaService.addTemporada(this.url + 'temporada/guardar',
+      this.temporada_nueva, this.filesToUpload, this.token, 'url_reglamento_temporada')
+      .then(response => { console.log(response); });
+      swal(
+        'Temporada Exitosamente Creada',
+        '',
+        'success'
+        );
+        this.temporada_nueva = new Temporada('', this.a, this.a, '', '', this.a);
+         //this._router.navigate(['']);
+    }
 
 }

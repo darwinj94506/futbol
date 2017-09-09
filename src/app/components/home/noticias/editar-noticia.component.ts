@@ -33,7 +33,8 @@ export class EditarNoticiaComponent implements OnInit {
     
   }
 
-  ngOnInit() {             
+  ngOnInit() {  
+    console.log(this.noticia_nueva);           
     if(this.noticia_nueva.image != null  || this.noticia_nueva.image!=undefined || this.noticia_nueva.image!=''){
       this.srcH=this.url+'noticia/get-image-noticia/'+this.noticia_nueva.image;
     }else{

@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { HttpModule} from '@angular/http';
 import { FormsModule } from '@angular/forms';
 
+import { PdfViewerComponent } from 'ng2-pdf-viewer';
 
 
 
@@ -39,10 +40,12 @@ import { ReglamentoComponent } from './components/reglamento/reglamento.componen
 import { JugadoresComponent } from './components/jugadores/jugadores.component';
 import { ListaTemporadaComponent } from './components/temporada/lista-temporada/lista-temporada.component';
 import { VerTemporadaComponent } from './components/temporada/ver-temporada/ver-temporada.component';
+import { EditarTemporadaComponent } from './components/temporada/ver-temporada/editar-temporada.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    PdfViewerComponent,
     HomeComponent,
     TablaPosicionesComponent,
     VerNoticiasComponent,
@@ -59,7 +62,8 @@ import { VerTemporadaComponent } from './components/temporada/ver-temporada/ver-
     ReglamentoComponent,
     JugadoresComponent,
     ListaTemporadaComponent,
-    VerTemporadaComponent
+    VerTemporadaComponent,
+    EditarTemporadaComponent
   ],
   imports: [
     BrowserModule,
