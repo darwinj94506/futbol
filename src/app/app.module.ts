@@ -29,6 +29,7 @@ import { TemporadaComponent } from './components/temporada/temporada.component';
 import{UserService} from './services/user.service';
 import{NoticiaService} from './services/noticia.service';
 import {EquipoService} from './services/equipo.service';
+import {TemporadaService} from './services/temporada.service';
 
 //rutas
 import{RoutingModule} from './app.routing';
@@ -39,6 +40,8 @@ import { JugadoresComponent } from './components/jugadores/jugadores.component';
 import { NuevoPersonalComponent } from './components/jugadores/nuevo-personal/nuevo-personal.component';
 import { SeccionEquipoComponent } from './components/jugadores/seccion-equipo/seccion-equipo.component';
 import { SeccionPersonalEquipoComponent } from './components/jugadores/seccion-personal-equipo/seccion-personal-equipo.component';
+import { ListaTemporadaComponent } from './components/temporada/lista-temporada/lista-temporada.component';
+import { VerTemporadaComponent } from './components/temporada/ver-temporada/ver-temporada.component';
 
 @NgModule({
   declarations: [
@@ -60,7 +63,9 @@ import { SeccionPersonalEquipoComponent } from './components/jugadores/seccion-p
     JugadoresComponent,
     NuevoPersonalComponent,
     SeccionEquipoComponent,
-    SeccionPersonalEquipoComponent
+    SeccionPersonalEquipoComponent,
+    ListaTemporadaComponent,
+    VerTemporadaComponent
   ],
   imports: [
     BrowserModule,
@@ -70,7 +75,7 @@ import { SeccionPersonalEquipoComponent } from './components/jugadores/seccion-p
     RoutingModule
   
   ],
-  providers: [UserService,NoticiaService,EquipoService],
+  providers: [UserService,NoticiaService,EquipoService,TemporadaService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

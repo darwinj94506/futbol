@@ -1,3 +1,13 @@
-<p>
-  temporada works!
-</p>
+<div class="row container-fluid">
+  <div class="col-lg-8">
+    <app-ver-temporada
+    [valor]="ver_formualrio"
+    (notify)="onNotifyClicked2($event)"
+    ></app-ver-temporada> 
+  </div>
+  <div class="col-lg-4">
+    <app-lista-temporada
+    (notify)="onNotifyClicked($event)"
+    ></app-lista-temporada>
+  </div>
+</div>

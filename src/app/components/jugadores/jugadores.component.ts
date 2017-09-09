@@ -10,9 +10,26 @@ import { SeccionPersonalEquipoComponent } from './seccion-personal-equipo/seccio
 })
 export class JugadoresComponent implements OnInit {
 
+  public verLista:boolean=false;
+  public verNuevoPersonal=false;
+  public equipo:any;
   constructor() { }
 
   ngOnInit() {
+  }
+
+  mostrarElemento(evento){
+    if(evento.mensaje.elementoSeleccionado){
+      this.equipo=evento.mensaje.elementoSeleccionado;
+      console.log("este equipo resivo");
+      console.log(this.equipo);
+
+      this.verLista=true;
+      // this.verNuevoPersonal=false;
+    }
+  }
+  mostrarNuevoPer(event){
+    this.verNuevoPersonal=event.mostrarAgregarPersonal;
   }
 
 }
