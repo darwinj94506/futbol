@@ -1,4 +1,4 @@
-<div class="card">
+<div class="card text-center">
   <div class="card-header">
     <h3>NOTICIAS</h3>
   </div>
@@ -26,7 +26,7 @@
         </ul>
       </nav>
     <hr>
-    <div class="card" *ngFor = "let noticiaItem of noticia ; let i = index">
+    <div class="card margenCard" *ngFor = "let noticiaItem of noticia ; let i = index">
       <img class="card-img-top" [src]="srcItem[i]" alt="Card image cap" height="180" >
       <div class="card-block">
         <h4 class="card-title">{{noticiaItem.titulo}}</h4>
@@ -35,14 +35,19 @@
         </p>
         <p>Fecha de Publicación: {{noticiaItem.fecha_publicado}}</p>
       </div>
-      <div class="card-footer" *ngIf="identity">
-        <a  class="btn btn-success" (click)="emitirEvento('editarNoticia',noticiaItem,srcItem[i])">Editar</a>   
-        <a  class="btn btn-danger" (click)="eliminarNoticia(noticiaItem)">Eliminar</a>
+      <div class="card-footer">
+        <button *ngIf="identity"  class="btn btn-success" (click)="emitirEvento('editarNoticia',noticiaItem,srcItem[i])">Editar</button>   
+        <button  *ngIf="identity"  class="btn btn-danger" (click)="eliminarNoticia(noticiaItem)">Eliminar</button>
+        <div *ngIf="!identity">
+            <i class="fa fa-star-o" aria-hidden="true"></i><i class="fa fa-star-o" aria-hidden="true"></i>
+            <i class="fa fa-star-o" aria-hidden="true"></i><i class="fa fa-star-o" aria-hidden="true"></i>
+        </div>
       </div>
     </div>
-      <br>
   </div>
   <div class="card-footer">
-    Seccion de Noticias    
+    <strong>
+    Seccion de Noticias T.O.D 2017
+   </strong>
   </div>
 </div>

@@ -35,7 +35,7 @@ export class ListaTemporadaComponent implements OnInit {
     private _router: Router,
     private _temporadaService: TemporadaService
   ) {
-    
+    this.identity = _userService.getIdentity();
    }
 
   ngOnInit() {

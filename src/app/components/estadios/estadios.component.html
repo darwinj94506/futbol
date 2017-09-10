@@ -1,3 +1,123 @@
-<p>
-  estadios works!
-</p>
+<div class="container" >
+  <div class="row">
+    <div class="col-lg-12">
+      <h1 class="text-center">
+        ESTADIOS HABILITADOS
+      </h1>
+      <button class="btn btn-success" data-toggle="collapse" href="#AgregarEstadio" aria-expanded="false" aria-controls="AgregarEstadio">Agregar Nuevo Estadio</button>
+      <!-- <button class="btn btn-success">Agregar Nuevo Estadio</button> -->
+    </div>
+  </div>
+  <hr class="featurette-divider">
+
+
+<!-- Inicio de Nuevo -->
+<div class="collapse" id="AgregarEstadio">
+    <div class="card container">
+      <div class="card-header text-center">
+        <h3>{{titulo}}</h3>
+      </div>
+      <div class="card-body">
+        <div class="row">
+          <div class="col-lg-10">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-group">
+                  <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                    <div class="input-group-addon frm-addon" style="width: 2.6rem">
+                        <i class="fa fa-clipboard" aria-hidden="true"></i>
+                    </div>
+    <!-- <input  name="cedula" #cedula="ngModel" [(ngModel)]="user.cedula" class="form-control" id="cedula" placeholder="Cédula de identidad" aria-describedby="cedula" required autofocus> -->
+                    <input type="text" name="name" class="form-control" placeholder="Nombre del Estadio" #nombre_estadio="ngModel" [(ngModel)]="estadio_nuevo.nombre_estadio" required autofocus>
+                    <div class="invalid-feedback">
+                      Please provide a valid city.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                    <!-- <label for="txt_direccion_estadio">Direccion del Estadio</label> -->
+                  <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                    <div class="input-group-addon frm-addon" style="width: 2.6rem"><i class="fa fa-map-marker" aria-hidden="true"></i></div>
+                    <!-- <input type="text-area" name="name" class="form-control" placeholder="Direccion Estadio" #direccion_estadio="ngModel" [(ngModel)]="equipo_nuevo.direccion_estadio" required> -->
+                    <textarea type="text" class="form-control" name="" placeholder="Direccion del Estadio"
+                    #direccion_estadio="ngModel" [(ngModel)]="estadio_nuevo.direccion_estadio">
+                    </textarea>
+                    <div class="invalid-feedback">
+                        Please provide a valid city.
+                      </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                    <div class="input-group-addon frm-addon" style="width: 2.6rem"><i class="fa fa-map" aria-hidden="true"></i></div>
+                    <!-- <input type="text" name="name" class="form-control" placeholder="Color Secundario" #color_secundario_equipo="ngModel" [(ngModel)]="nuevo_equipo.color_secundario_equipo" required> -->
+                    <textarea type="text" class="form-control" name="" placeholder="Descripción del Estadio"
+                    #observacion_estadio="ngModel" [(ngModel)]="observacion_estadio.direccion_estadio">
+                    </textarea>
+                    <div class="invalid-feedback">
+                        Please provide a valid city.
+                      </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- 3 -->
+          </div>
+          <div class="col-lg-2">
+            <div class="form-group">
+              <input type="file" (change)="imagen($event)" name="file-5[]" id="file-5" class=" inputfile inputfile-4" />
+              <label for="file-5" ><figure><svg xmlns="http://www.w3.org/2000/svg" width="20" height="17" viewBox="0 0 20 17"><path d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z"/></svg></figure> <span>{{nombre_escudo}}</span></label>
+            </div>
+          </div>
+  
+        </div>
+  
+      </div>
+      <div class="card-footer">
+        <button class="btn btn-success pull-left" type="submit" (click)="guardarEquipo()">Guardar Equipo </button>
+        <!-- <a class="btn btn-success pull-left" (click)="guardarEquipo()" role="button">Guardar Equipo</a> -->
+        <a class="btn btn-danger pull-right" role="button" data-toggle="collapse" href="#AgregarEquipo" aria-expanded="true" aria-controls="AgregarEquipo"
+        >Cancelar</a>
+      </div>
+    </div>
+  </div>
+  <hr class="featurette-divider">
+<!-- Fin de Nuevo -->
+
+  <div class="row featurette jumbotron">
+    <div class="col-md-7 col-lg-7">
+      <h2 class="featurette-heading">Nombre del Estadio
+      </h2>
+      <p><span class="text-muted">Direccion:
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Delectus, dolorem.
+          <a href="">Como llegar</a>
+        </span></p>
+      <p class="lead">Descripción General del Estadio: 
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quibusdam illo eaque maxime suscipit amet vitae similique nihil sunt fuga, dignissimos magnam consequatur harum voluptate quod temporibus! Quo facilis blanditiis temporibus illo praesentium labore delectus, quia laboriosam assumenda nesciunt unde modi nihil, iste id dolor perferendis corrupti iusto sed! Modi soluta laborum fugit ad ducimus, consequuntur repellat, inventore obcaecati sunt quibusdam neque quia id ex porro cum ipsum sit sequi atque quaerat! Assumenda quibusdam iste accusantium, quasi cupiditate nisi maiores asperiores officiis nulla enim, repellat, modi rem
+      </p>
+    </div>
+    <div class="col-md-5 col-lg-5">
+      <img class="featurette-image img-fluid mx-auto" src="assets/img/estadio_america.jpg" alt="Generic placeholder image">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.4348189235407!2d-78.6029420857049!3d-0.7944160994204577!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x91d45922a83cec13%3A0x835791c8dee424ff!2sEstadio+de+las+Americas!5e0!3m2!1ses!2sec!4v1505064890469"   frameborder="0" allowfullscreen></iframe>
+    </div>
+  </div>
+
+  <hr class="featurette-divider">
+
+  <div class="row featurette">
+      <div class="col-md-5 col-lg-5">
+          <img class="featurette-image img-fluid mx-auto" data-src="holder.js/500x500/auto" alt="Generic placeholder image">
+        </div>
+    <div class="col-md-7 col-lg-7">
+      <h2 class="featurette-heading">Oh yeah, it's that good. <span class="text-muted">See for yourself.</span></h2>
+      <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+    </div>
+  </div>
+  <hr class="featurette-divider">
+</div>

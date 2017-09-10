@@ -259,8 +259,24 @@ input[type="radio"] {
 /*fondo de las card*/
 .card{
   background-image: url('/assets/img/fondo_equipo.jpg');
+  border-radius: 16px !important;
 }
 
 .jumbotron{
   background-image: url('/assets/img/fondo_equipo.jpg'); 
+  border-radius: 16px !important;
+}
+
+.margenCard{
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+/*Efecto de Botones*/
+.card-footer button:hover{
+  -webkit-transform:  scale(1.2);
+  -moz-transform: scale(1.2);
+  -o-transform: scale(1.2);
+  -ms-transform: scale(1.2);
+  transform: scale(1.2);
 }
