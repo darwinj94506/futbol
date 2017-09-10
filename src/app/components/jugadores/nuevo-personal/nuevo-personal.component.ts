@@ -16,7 +16,7 @@ export class NuevoPersonalComponent implements OnInit {
   public srcH:any;
   public identity;
   public token;
-  public filesToUpdate : Array<File>;
+  public filesToUpload : Array<File>;
 
   public aux : any;
   
@@ -38,10 +38,17 @@ export class NuevoPersonalComponent implements OnInit {
     
   }
 
+  imagen(fileInput: any) {
+    // var files = fileInput.srcElement.files[0].name;
+    // this.nombre_documento = files;
+    this.filesToUpload = <Array<File>>fileInput.target.files;
+    console.log(fileInput);
+  }
+
   guardarPersonal(){
     console.log("Personal a Guardar");
     console.log(this.personal);
-    this._PS.addPersonal(this.url+'personal/guardar',this.personal,this.filesToUpdate,this.token,'url_foto_personal')
+    this._PS.addPersonal(this.url+'personal/guardar',this.personal,this.filesToUpload,this.token,'url_foto_personal')
       .then(response=>{
         if(response){
           alert("personal creado");
