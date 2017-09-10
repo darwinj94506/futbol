@@ -30,6 +30,8 @@ import{UserService} from './services/user.service';
 import{NoticiaService} from './services/noticia.service';
 import {EquipoService} from './services/equipo.service';
 import {TemporadaService} from './services/temporada.service';
+import {PersonalService} from './services/personal.service';
+
 
 //rutas
 import{RoutingModule} from './app.routing';
@@ -75,7 +77,7 @@ import { VerTemporadaComponent } from './components/temporada/ver-temporada/ver-
     RoutingModule
   
   ],
-  providers: [UserService,NoticiaService,EquipoService,TemporadaService],
+  providers: [UserService,NoticiaService,EquipoService,TemporadaService,PersonalService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
