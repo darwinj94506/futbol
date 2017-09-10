@@ -50,7 +50,8 @@ export class VerNoticiasComponent implements OnInit {
   }
 
   emitirEvento(elementoSeleccionado:string, noticia=null,srcItem){
-      this.mostrar.emit({
+    console.log(noticia);  
+    this.mostrar.emit({
         'mensaje':{
           'componente':elementoSeleccionado,
           'noticiaEditar':noticia,

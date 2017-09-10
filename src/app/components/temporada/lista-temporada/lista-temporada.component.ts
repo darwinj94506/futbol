@@ -14,8 +14,12 @@ import swal from 'sweetalert2';
   styleUrls: ['./lista-temporada.component.css']
 })
 export class ListaTemporadaComponent implements OnInit {
+  
+  @Output() notify = new EventEmitter();
+  //@Output() notify2: EventEmitter <boolean> = new EventEmitter <boolean>();
+  @Output() DatosTemporadaEditar=new EventEmitter();
+  
 
-  @Output() notify: EventEmitter <boolean> = new EventEmitter <boolean>();
 
   public ver_nuevo_formulario=false;
   public identity;
@@ -40,7 +44,12 @@ export class ListaTemporadaComponent implements OnInit {
   }
 
   ver_formulario(event){
-    this.notify.emit(true);
+    this.notify.emit({'mensaje':
+    {
+    'estado':true,
+    'ngSwitch':'nueva-temporada'
+    }
+    });
   }
 
   obtenerTemporadas() {
@@ -61,5 +70,13 @@ export class ListaTemporadaComponent implements OnInit {
         }
       }
     );
+  }
+
+  datos_temporada(event,elementoSeleccionado:string){
+    this.DatosTemporadaEditar.emit({
+        'mensaje':{
+          'componente':elementoSeleccionado
+        }
+      });
   }
 }
