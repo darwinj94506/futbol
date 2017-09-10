@@ -4,12 +4,26 @@
 /* Padding below the footer and lighter body text */
 
 body {
+  background-image: url('/assets/img/Imagen.jpg');
   padding-top: 3rem;
   padding-bottom: 3rem;
   color: #5a5a5a;
+  margin: 0;
+  margin-bottom: 40px;
+}
+html {
+  min-height: 100%;
+  position: relative;
 }
 
-
+footer {
+  background-color: #292b2c!important;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 40px;
+  color: white;
+}
 /* CUSTOMIZE THE CAROUSEL
 -------------------------------------------------- */
 
@@ -238,4 +252,15 @@ input[type=radio]:checked + label:after {
 
 input[type="radio"] {
   visibility: hidden;
+}
+
+
+
+/*fondo de las card*/
+.card{
+  background-image: url('/assets/img/fondo_equipo.jpg');
+}
+
+.jumbotron{
+  background-image: url('/assets/img/fondo_equipo.jpg'); 
 }

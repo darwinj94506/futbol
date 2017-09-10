@@ -6,14 +6,25 @@
 </div>
 
 <div class="jumbotron" *ngIf="validarTemporadas">
-  <h1>TEMPORADA ACTUAL</h1>
+  <h1 class="text-center">TEMPORADA ACTUAL</h1>
   <hr class="my-4">
-  <p>Nombre de la Temporada: {{temporada_actual.nombre_temporada}}</p>
-  <p>Fecha de Inicio: {{temporada_actual.fecha_inicio}}</p>
-  <p>Fecha de Clausura: {{temporada_actual.fecha_fin}}</p>
-  <p>Diponibilidad del Reglamento: <label for="" *ngIf="(temporada_actual.url_reglamento_temporada)">SI</label><label for="" *ngIf="!(temporada_actual.url_reglamento_temporada)">NO</label></p>
+  <div class="row">
+    <div class="col-lg-12"><h1 class="text-center">
+        <i class="fa fa-star-o" aria-hidden="true"></i> {{temporada_actual.nombre_temporada}} <i class="fa fa-star-o" aria-hidden="true"></i>  
+    </h1></div>  
+  </div>
+  <div class="row">
+    <div class="col-lg-6">
+        <strong>Fecha de Inicio: </strong>  {{temporada_actual.fecha_inicio}}
+    </div>
+    <div class="col-lg-6">
+        <strong>Fecha de Clausura: </strong> {{temporada_actual.fecha_fin}}
+    </div>
+  </div>
+  <div class="row col-lg-12">
+      <strong>Diponibilidad del Reglamento:</strong>  <label for="" *ngIf="(temporada_actual.url_reglamento_temporada)">SI</label><label for="" *ngIf="!(temporada_actual.url_reglamento_temporada)">NO</label>
+  </div>
 </div>
-
 <div class="jumbotron" *ngIf="mostrar_formualrio_nuevo">
   <div class="row">
     <div class="col-lg-12 text-center">
