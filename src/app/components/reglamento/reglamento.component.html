@@ -1,3 +1,14 @@
-<p>
-  reglamento works!
-</p>
+
+<div class="container" *ngIf = "!temporada_actual">
+  <h1 >Reglamento NO ENCONYTADO</h1>
+</div>
+<div class="container jumbotron" *ngIf = "temporada_actual">
+    <h1 class="text-center">Reglamento de la Temporada </h1>
+    <h1 class="text-center">{{temporada_actual.nombre_temporada}}</h1>
+    <hr class="my-4">
+    <iframe width="100%" height="500px" [src]="pdfIframe" type="application/pdf"></iframe>
+    <!-- <pdf-viewer [src]="pdf" 
+[original-size]="true"
+[show-all]="true"
+></pdf-viewer> -->
+</div>

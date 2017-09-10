@@ -12,6 +12,7 @@ export class TemporadaComponent implements OnInit {
   public verElemento = "nueva-temporada";
   public ver_formulario = false;
   public datosFormuladrioEditar : any;
+  public id_editar : string;
 
   constructor() { }
 
@@ -33,6 +34,7 @@ export class TemporadaComponent implements OnInit {
     data.mensaje.componente.fecha_inicio = fecha1[0];
     data.mensaje.componente.fecha_fin = fecha2[0];
     this.datosFormuladrioEditar = data.mensaje.componente;
+    this.id_editar = data.mensaje.componente._id;
     console.log(data.mensaje.componente);
     this.verElemento = "editar-temporada";
     this.ver_formulario = true;

@@ -71,14 +71,14 @@
              </small>
             <div class="accounttype" id="activar">
                 <input type="radio" id="radioOne" name="account" 
-                #estado_temporada="ngModel" [(ngModel)]="temporada_nueva.estado_temporada"
+                ngModel
                  (ngModelChange)="rolSelect($event)" value=true
-                 [checked]="temporada_nueva.estado_temporada" />
+                 [checked]="temporada_nueva.estado_temporada == true" />
                 <label for="radioOne" class="radio" >SI</label>
                 <input type="radio" id="radioTwo" name="account"
-                #estado_temporada="ngModel" [(ngModel)]="temporada_nueva.estado_temporada"
+                ngModel
                 (ngModelChange)="rolSelect($event)" value=false
-                [checked]="temporada_nueva.estado_temporada" />
+                [checked]="temporada_nueva.estado_temporada == false"/>
                 <label for="radioTwo" class="radio">NO</label>
               </div>
         </div>
