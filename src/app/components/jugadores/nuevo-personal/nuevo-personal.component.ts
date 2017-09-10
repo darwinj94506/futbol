@@ -17,12 +17,14 @@ export class NuevoPersonalComponent implements OnInit {
   public identity;
   public token;
   public filesToUpdate : Array<File>;
+
+  public aux : any;
   
   // public btnGuardarNoticia:boolean=true;
   // public btnUpdateNoticia:boolean=false;
 
   constructor(private _PS:PersonalService, private _US:UserService) {
-    this.personal=new Personal('','','',null,'',0,0,0,null,'','',true);
+    this.personal=new Personal('','','',this.aux,'',0,0,0,this.aux,'','',true);
     console.log(this.personal.fecha_nacimiento_personal);
 
     this.url = GLOBAL.url;
@@ -37,7 +39,9 @@ export class NuevoPersonalComponent implements OnInit {
   }
 
   guardarPersonal(){
-    this._PS.addPersonal(this.url+'personal/guardar',this.personal,this.filesToUpdate,this.token,'image')
+    console.log("Personal a Guardar");
+    console.log(this.personal);
+    this._PS.addPersonal(this.url+'personal/guardar',this.personal,this.filesToUpdate,this.token,'url_foto_personal')
       .then(response=>{
         if(response){
           alert("personal creado");
