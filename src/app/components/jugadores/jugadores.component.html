@@ -16,7 +16,7 @@
 </div>
 <div class="row">
   <div class="col-lg-8">
-      <app-nuevo-personal *ngIf="verNuevoPersonal" ></app-nuevo-personal>
+      <app-nuevo-personal [IdEquipo]="equipo._id" *ngIf="verNuevoPersonal" ></app-nuevo-personal>
   </div>
 
 </div>

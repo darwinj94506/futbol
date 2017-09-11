@@ -33,7 +33,7 @@
         <p class="card-text">Descripcion: 
           {{noticiaItem.descripcion}}
         </p>
-        <p>Fecha de Publicación: {{noticiaItem.fecha_publicado}}</p>
+        <p>Fecha de Publicación: {{noticiaItem.fecha_publicado | date}}</p>
       </div>
       <div class="card-footer">
         <button *ngIf="identity"  class="btn btn-success" (click)="emitirEvento('editarNoticia',noticiaItem,srcItem[i])">Editar</button>   

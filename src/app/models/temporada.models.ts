@@ -1,5 +1,6 @@
 export class Temporada {
     constructor(
+        public _id: string,
         public nombre_temporada: string,
         public fecha_inicio: Date,
         public fecha_fin: Date,

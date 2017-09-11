@@ -4,8 +4,8 @@ import { HttpModule} from '@angular/http';
 import { FormsModule } from '@angular/forms';
 
 import { PdfViewerComponent } from 'ng2-pdf-viewer';
-
-
+//para fecha es español
+import{LOCALE_ID} from '@angular/core'
 
 import { AppComponent } from './app.component';
 //Componentes 
@@ -81,7 +81,12 @@ import { EditarTemporadaComponent } from './components/temporada/ver-temporada/e
     RoutingModule
   
   ],
-  providers: [UserService,NoticiaService,EquipoService,TemporadaService,PersonalService],
+  providers: [
+    UserService,NoticiaService,EquipoService,
+    TemporadaService,PersonalService,
+    //para la fecha en español
+    {provide:LOCALE_ID,useValue:'es'}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

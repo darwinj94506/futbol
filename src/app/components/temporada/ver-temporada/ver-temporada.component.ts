@@ -42,7 +42,7 @@ export class VerTemporadaComponent implements OnInit {
     private _router: Router,
     private _temporadaService: TemporadaService) {
     this.url = GLOBAL.url;
-    this.temporada_nueva = new Temporada('', this.a, this.a, '', '', this.a);
+    this.temporada_nueva = new Temporada('','', this.a, this.a, '', '', this.a);
   }
 
   ngOnInit() {
@@ -103,7 +103,7 @@ export class VerTemporadaComponent implements OnInit {
         '',
         'success'
         );
-        this.temporada_nueva = new Temporada('', this.a, this.a, '', '', this.a);
+        this.temporada_nueva = new Temporada('','', this.a, this.a, '', '', this.a);
          //this._router.navigate(['']);
     }
 
