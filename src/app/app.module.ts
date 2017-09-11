@@ -32,7 +32,7 @@ import{NoticiaService} from './services/noticia.service';
 import {EquipoService} from './services/equipo.service';
 import {TemporadaService} from './services/temporada.service';
 import {PersonalService} from './services/personal.service';
-
+import {CategoriaService} from './services/categoria.service';
 
 //rutas
 import{RoutingModule} from './app.routing';
@@ -81,7 +81,7 @@ import { EditarTemporadaComponent } from './components/temporada/ver-temporada/e
     RoutingModule
   
   ],
-  providers: [UserService,NoticiaService,EquipoService,TemporadaService,PersonalService],
+  providers: [UserService,NoticiaService,EquipoService,TemporadaService,PersonalService,CategoriaService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
