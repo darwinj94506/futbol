@@ -14,10 +14,8 @@ export class JugadoresComponent implements OnInit {
   public verNuevoPersonal=false;
   public equipo:any;
   constructor() { }
-
   ngOnInit() {
   }
-
   mostrarElemento(evento){
     if(evento.mensaje.elementoSeleccionado){
       this.equipo=evento.mensaje.elementoSeleccionado;
@@ -31,5 +29,4 @@ export class JugadoresComponent implements OnInit {
   mostrarNuevoPer(event){
     this.verNuevoPersonal=event.mostrarAgregarPersonal;
   }
-
 }
