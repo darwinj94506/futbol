@@ -80,18 +80,14 @@
             <small id="activar" class="text-muted Error">
                 ¿Marcar la temporada como Actual?
              </small>
-            <div class="accounttype" id="activar">
-                <input type="radio" id="radioOne" name="account" 
-                ngModel
-                 (ngModelChange)="rolSelect($event)" value=true
-                 [checked]="temporada_nueva.estado_temporada == true" />
-                <label for="radioOne" class="radio" >SI</label>
-                <input type="radio" id="radioTwo" name="account"
-                ngModel
-                (ngModelChange)="rolSelect($event)" value=false
-                [checked]="temporada_nueva.estado_temporada == false"/>
-                <label for="radioTwo" class="radio">NO</label>
-              </div>
+             <form id="activar" action="" class="accounttype">
+              <input id="radiouno" type="radio" [checked]="temporada_nueva.estado_temporada" 
+                  (click)="setProperty($event.target.checked)"
+                  name="estado_temporada"><label for="radiouno" class="radio" >SI</label>
+              <input id="radiodos" type="radio" [checked]="!temporada_nueva.estado_temporada" 
+                  (click)="setProperty(!$event.target.checked)" 
+                  name="estado_temporada"><label for="radiodos" class="radio">NO</label>
+          </form> 
         </div>
         <div class="col-lg-6">
             <small id="activar" class="text-muted Error">

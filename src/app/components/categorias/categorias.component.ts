@@ -23,6 +23,7 @@ export class CategoriasComponent implements OnInit {
   public temporada_actual: Temporada;
   public url: string;
   public token;
+  public identity;
 
   public titulo= 'Nueva Categoria';
   public categorias: Categoria[];
@@ -41,6 +42,7 @@ export class CategoriasComponent implements OnInit {
   ) {
     this.url = GLOBAL.url;
     this.token = this._userService.getToken();
+    this.identity = this._userService.getIdentity();
     this.categoria = new Categoria('', 0, '', '', false, this.array);
    }
 
@@ -168,5 +170,32 @@ export class CategoriasComponent implements OnInit {
         }
         }
     );
+  }
+
+  generarCalendario(categoria: Categoria, id: string ){
+    // let cupoDisponible = categoria.n_equipos_categoria - categoria.codigo_equipo.length;
+    // console.log(cupoDisponible);
+    if ( (categoria.n_equipos_categoria - categoria.codigo_equipo.length) === 0){
+      console.log(categoria.codigo_equipo);
+      swal(
+        'El calendario ha sido generado',
+        'EXITOSAMENTE',
+        'success'
+        );
+    }else {
+      if( (categoria.n_equipos_categoria - categoria.codigo_equipo.length) < 0){
+        swal(
+          'ERROR',
+          'El cupo  disponible debe ser mayor o igual a 0',
+          'error'
+          );
+      }else{
+        swal(
+          'Todavia existen cupos Disponibles',
+          'LLenar los cupos de la Categoria',
+          'warning'
+          );
+      }
+    }
   }
 }
