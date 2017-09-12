@@ -24,7 +24,7 @@ const adminRoutes:Routes=[
   {path:'calendario',component:CalendarioComponent},    
   {path:'reglamento',component:ReglamentoComponent},
   {path:'estadios',component:EstadiosComponent}, 
-  {path:'categorias',component:CalendarioComponent},            
+  {path:'categorias',component:CategoriasComponent},            
   {path:'equipos',component:EquiposComponent},
   {path:'temporada',component:TemporadaComponent},
   {path:'jugadores',component:JugadoresComponent},

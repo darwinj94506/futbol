@@ -1,0 +1,21 @@
+<!-- <input class="form-control form-control-lg" type="text" placeholder="Ingrese el equipo"> -->
+<!-- <input class="form-control" type="text" placeholder="Default input">
+<input class="form-control form-control-sm" type="text" placeholder=".form-control-sm"> -->
+<!-- <label for="">Seleccione un equipo</label> -->
+<!-- <br> -->
+<select  class="form-control"  [(ngModel)]="equipo">
+        <!-- <option value="" disabled selected>Select your option</option> -->
+        <option disabled hidden [value]="selectUndefinedOptionValue">Seleccione un equipo</option>
+        
+        <option  *ngFor="let equipo of equipos" [ngValue]="equipo">{{equipo.nombre_equipo}}</option>
+    
+</select>
+<br>
+<div class="card mb-3" *ngIf="equipo">
+        <img class="card-img-top" src="..." alt="Imagen del equipo">
+        <div class="card-body">
+          <h4 class="card-title">{{equipo.nombre_equipo}}</h4>
+          <p class="card-text">{{equipo.descripcion_equipo}}</p>
+          <p class="card-text"><small class="text-muted">{{equipo.anio_fundacion_equipo | date:'dd - MMMM - yyyy'}}</small></p>
+        </div>
+</div>

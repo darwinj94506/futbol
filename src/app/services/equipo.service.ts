@@ -5,12 +5,17 @@ import { Observable } from 'rxjs/Observable';
 import { GLOBAL } from './global';
 
 import { Equipo } from '../models/equipo.model';
+import{UserService} from './user.service';
+
 
 @Injectable()
 export class EquipoService {
   public url: string;
-  constructor(private _http: Http) {
+  public token;
+  
+  constructor(private _http: Http, private _US:UserService) {
     this.url = GLOBAL.url;
+    this.token=_US.getToken();
   }
 
   getEquipos() {
@@ -100,4 +105,16 @@ export class EquipoService {
     return this._http.delete(this.url+'equipo/delete/'+id,options)
     .map(res => res.json());
   }
+  addPersonalAEquipo(idPersonal,idEquipo){
+    // let params=JSON.stringify(equipo_to_update);
+    let params={"personal_equipo":idPersonal};
+    let headers=new Headers({
+      'Content-Type':'application/json',
+      'Authorization':this.token
+    });
+    return this._http.put(this.url+'equipo/agregarPERSONAL/'+idEquipo,params,{headers:headers})
+                                                                    .map(res=>res.json());
+
+  }
+
 }

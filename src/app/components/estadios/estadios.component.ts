@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import { Estadio } from '../../models/estadio.model';
+
 @Component({
   selector: 'app-estadios',
   templateUrl: './estadios.component.html',
@@ -7,7 +9,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EstadiosComponent implements OnInit {
 
-  constructor() { }
+  public titulo = 'Agregar Nuevo Estadio';
+  public estadio_nuevo: Estadio;
+  constructor() { 
+    this.estadio_nuevo = new Estadio('', '', '', '', '' , true);
+  }
 
   ngOnInit() {
   }

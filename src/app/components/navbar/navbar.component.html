@@ -9,17 +9,19 @@
         <a class="nav-link" [routerLink]="['home']">Inicio <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" *ngIf="identity" [routerLink]="['temporada']">Temporada</a>
+        <a class="nav-link" [routerLink]="['temporada']">Temporada</a>
       </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" [routerLink]="['categorias']" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Categorias</a>
-        <div class="dropdown-menu">
-          <a class="dropdown-item" href="#">Maxima</a>
-          <a class="dropdown-item" href="#">Primera A</a>
-          <a class="dropdown-item" href="#">Primera B</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Separated link</a>
-        </div>
+      <li class="nav-item ">
+          <!-- dropdown -->
+        <a class="nav-link" [routerLink]="['categorias']">Categorias</a>
+        <!-- dropdown-toggle data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"-->
+        <!-- <div class="dropdown-menu"> -->
+          <!-- <a class="dropdown-item" href="#">Maxima</a> -->
+          <!-- <a class="dropdown-item" href="#">Primera A</a> -->
+          <!-- <a class="dropdown-item" href="#">Primera B</a> -->
+          <!-- <div class="dropdown-divider"></div> -->
+          <!-- <a class="dropdown-item" href="#">Separated link</a> -->
+        <!-- </div> -->
       </li>
       <li class="nav-item">
         <a class="nav-link" [routerLink]="['equipos']">Equipos</a>
@@ -34,7 +36,7 @@
         <a class="nav-link" [routerLink]="['reglamento']">Reglamento</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" [routerLink]="['jugadores']">Jugadores</a>
+        <a class="nav-link" [routerLink]="['jugadores']">Personal</a>
       </li>
     </ul>
     <form class="form-inline mt-2 mt-md-0">
