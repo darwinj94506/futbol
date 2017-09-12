@@ -117,6 +117,7 @@ export class CategoriasComponent implements OnInit {
     console.log(this.categoria);
     this._categoriaService.addCategoria(this.token,this.categoria).subscribe(
       response => {
+        console.log(response);
         if (!response) {
           console.log("No se ha podido Guardar la Categoria");
         }else{
@@ -126,7 +127,7 @@ export class CategoriasComponent implements OnInit {
             'success'
             );
             this.categoria = new Categoria('', 0, '', '', false, this.array);
-            // this.guardado = false;
+            this.obtenerTemporadas();
         }
       },
       error => {
