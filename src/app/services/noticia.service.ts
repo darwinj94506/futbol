@@ -79,7 +79,7 @@ export class NoticiaService {
       xhr.send(formData);
       }); 
   }
-  //Eliminar Noticia
+  //Eliminar
   deleteNoticia(token,id){
     let headers = new Headers({
       'Content-Type':'application/json',
