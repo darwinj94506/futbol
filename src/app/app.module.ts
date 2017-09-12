@@ -5,7 +5,7 @@ import { FormsModule } from '@angular/forms';
 
 import { PdfViewerComponent } from 'ng2-pdf-viewer';
 //para fecha es español
-import{LOCALE_ID} from '@angular/core'
+import{LOCALE_ID} from '@angular/core';
 
 import { AppComponent } from './app.component';
 //Componentes 

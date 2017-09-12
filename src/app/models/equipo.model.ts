@@ -1,5 +1,6 @@
 export class Equipo {
     constructor(
+        public _id:String,
         public nombre_equipo: string,
         public descripcion_equipo: string,
         public anio_fundacion_equipo: Number,
@@ -9,7 +10,7 @@ export class Equipo {
         public observacion_equipo: string,
         public personal_equipo: [string],
         public estado_equipo: boolean,
-        public logros_equipo: [string]
+        public logros_equipo: [object]
     ) { }
 }
 

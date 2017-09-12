@@ -70,6 +70,12 @@ export class AgregarNoticiaComponent implements OnInit {
             )
           }        
           this.notificacion.emit("Noticia creada");
+         }).catch(()=>{
+          swal(
+            'Oops...',
+            '¡Algo salio mal, pruebe despues de un momento!',
+            'error'
+          )
          }); 
       });
            

@@ -107,13 +107,11 @@ export class VerNoticiasComponent implements OnInit {
                       console.log("1"+response.mensaje);
                       response.mensaje.forEach((element,i) => { 
                         if(element.image!=null && element.image!=undefined && element.image!='')                                                                                          
-                          {
-                            console.log("holaaaaa src");
+                          {                          
                             this.srcItem[i]=this.url+'noticia/get-image-noticia/'+element.image;
                             this.noticia[i].image=element.image;}
                         else
-                          {
-                            console.log("holaaaaa src2");
+                          {                            
                             this.srcItem[i]=this.url+'noticia/get-image-noticia/default.jpg';
                             this.noticia[i].image='default.jpg';}
                       });

@@ -19,12 +19,19 @@ import swal from 'sweetalert2';
 export class CategoriasComponent implements OnInit {
   
   public mostrar_formulario_inicial = false;
+  // public guardado = true;
   public temporada_actual: Temporada;
   public url: string;
+  public token;
+  public identity;
 
   public titulo= 'Nueva Categoria';
   public categorias: Categoria[];
   public categoria: Categoria;
+
+  public array: any;
+  public arrayCategoria = new Array();
+  public idModifcar: string;
 
   constructor(
     private _userService: UserService,
@@ -34,7 +41,10 @@ export class CategoriasComponent implements OnInit {
     private _categoriaService: CategoriaService
   ) {
     this.url = GLOBAL.url;
-    this.categoria = new Categoria('',0,'','',false,['']);
+    this.token = this._userService.getToken();
+    
+    this.identity = this._userService.getIdentity();    
+    this.categoria = new Categoria('','', 0, '', '', false, this.array);
    }
 
   ngOnInit() {
@@ -78,12 +88,12 @@ export class CategoriasComponent implements OnInit {
             // console.log("alo 1 "+ response[index].id_temporada + "id: "+ id) ;
             if( response[index].id_temporada == id){
               console.log(" Id de la temporada en categoria "+response[index].id_temporada);
-              this.categorias = response[index];
+              this.arrayCategoria[i] = response[index];
               i++
             }
           }
           console.log(response);
-          console.log(this.categorias)
+          console.log(this.arrayCategoria);
         }
       },
       error => {
@@ -95,4 +105,99 @@ export class CategoriasComponent implements OnInit {
         });
   }
 
+  rolSelect(estado: boolean){
+    this.categoria.segunda_vuelta = estado;
+    console.log(event);
+  }
+  
+  setProperty(inChecked: boolean) {
+    this.categoria.segunda_vuelta = inChecked;
+}
+  guardarcategoria(){
+    this.categoria.id_temporada = this.temporada_actual._id;
+    console.log(this.categoria);
+    this._categoriaService.addCategoria(this.token,this.categoria).subscribe(
+      response => {
+        console.log(response);
+        if (!response) {
+          console.log("No se ha podido Guardar la Categoria");
+        }else{
+          swal(
+            'Categoria Exitosamente Creada',
+            '',
+            'success'
+            );
+            this.categoria = new Categoria('', '', 0, '', '', false, this.array);
+            this.obtenerTemporadas();
+        }
+      },
+      error => {
+        var errorMessage = <any>error;
+        if (errorMessage != null) {
+          var body = JSON.parse(error._body);
+          console.log(body);
+        }
+        }
+    );
+  }
+
+  DatsoModificarCategoria(categoriaModifcar: Categoria, id:string){
+    this.titulo = 'Modificar Categoria';
+    this.categoria = categoriaModifcar;
+    this.idModifcar = id;
+  }
+  ModificarCategoria(){
+    this._categoriaService.editCategoria(this.token, this.idModifcar ,this.categoria).subscribe(
+      response => {
+        if (!response) {
+          console.log("Error al Modificar");
+        }else{
+          console.log(response)
+          swal(
+            'Categoria Modificada Y Guardada',
+            '',
+            'success'
+            );
+            this.categoria = new Categoria('','', 0, '', '', false, this.array);
+            // this.guardado = false;
+            this.titulo = 'Nueva Categoria';
+            this.idModifcar = '';
+        }
+      },
+      error => {
+        var errorMessage = <any>error;
+        if (errorMessage != null) {
+          var body = JSON.parse(error._body);
+          console.log(body);
+        }
+        }
+    );
+  }
+
+  generarCalendario(categoria: Categoria, id: string ){
+    // let cupoDisponible = categoria.n_equipos_categoria - categoria.codigo_equipo.length;
+    // console.log(cupoDisponible);
+    if ( (categoria.n_equipos_categoria - categoria.codigo_equipo.length) === 0){
+      console.log(categoria.codigo_equipo);
+      swal(
+        'El calendario ha sido generado',
+        'EXITOSAMENTE',
+        'success'
+        );
+    }else {
+      if( (categoria.n_equipos_categoria - categoria.codigo_equipo.length) < 0){
+        swal(
+          'ERROR',
+          'El cupo  disponible debe ser mayor o igual a 0',
+          'error'
+          );
+      }else{
+        swal(
+          'Todavia existen cupos Disponibles',
+          'LLenar los cupos de la Categoria',
+          'warning'
+          );
+      }
+    }
+  }
 }
