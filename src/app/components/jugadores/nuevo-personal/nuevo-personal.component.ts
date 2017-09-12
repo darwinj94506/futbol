@@ -39,9 +39,10 @@ export class NuevoPersonalComponent implements OnInit,OnChanges {
    }
 
    ngOnChanges(){
-    alert(this.rol);
+    //  alert("darwin es el mejor");
+    console.log("darwin es el mejor y siempre lo sera");
    }
-   
+
   ngOnInit() {
     // this.srcH=this.url+'personal/get-image-noticia/default.jpg';   
     

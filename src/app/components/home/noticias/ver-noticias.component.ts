@@ -27,6 +27,7 @@ export class VerNoticiasComponent implements OnInit {
 
   @Output() mostrar=new EventEmitter();
   @Input('notificacion') 
+  @Output() enviarNoticiasCarrusel=new EventEmitter();
   set notificacion(value: Noticia) {
     this.traerTresNoticias(1);
   }
@@ -46,16 +47,17 @@ export class VerNoticiasComponent implements OnInit {
 	}
 
 	ngOnInit(){		 
-    this.traerTresNoticias(this.pagina);    
+    this.traerTresNoticias(this.pagina); 
   }
 
-  emitirEvento(elementoSeleccionado:string, noticia=null,srcItem){
-    console.log(noticia);  
+  emitirEvento(elementoSeleccionado:string, noticiaEdit=null,srcItem){
+    // console.log(noticia);  
     this.mostrar.emit({
         'mensaje':{
           'componente':elementoSeleccionado,
-          'noticiaEditar':noticia,
-          'srcItem':srcItem
+          'noticiaEditar':noticiaEdit,
+          'srcItem':srcItem,
+          'noticias':this.noticia
         }
       });
   }
@@ -115,7 +117,8 @@ export class VerNoticiasComponent implements OnInit {
                             this.srcItem[i]=this.url+'noticia/get-image-noticia/default.jpg';
                             this.noticia[i].image='default.jpg';}
                       });
-                  
+                      // this.enviarNoticiasCarrusel.emit({'noticias':this.noticia});   
+                           
                       let tamaño = response.mensaje.length;
                       if(tamaño == 0){
                         this.pagina=page-2;
