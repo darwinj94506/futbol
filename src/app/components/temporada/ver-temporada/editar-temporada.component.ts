@@ -32,7 +32,7 @@ export class EditarTemporadaComponent implements OnInit {
   public token;
 
   //id de la temporda actual
-  public id_temporada_actual:string;
+  public id_temporada_actual: string;
   //radio_button
   public estado_readio_button = true;
   public estadoinicial: boolean;
@@ -108,14 +108,14 @@ export class EditarTemporadaComponent implements OnInit {
     );
   }
 
-  rolSelect(estado){
+  rolSelect(estado) {
     console.log(estado);
-    if(estado == 'true'){
+    if (estado == 'true') {
       this.temporada_nueva.estado_temporada = true;
-    }else{
+    } else {
       this.temporada_nueva.estado_temporada = false;
     }
-	}
+  }
 
   updateTemporada() {
     console.log(this.temporada_nueva);
@@ -125,12 +125,12 @@ export class EditarTemporadaComponent implements OnInit {
       console.log("id de la temporada nueva: " + this.idEditar);
       //this.temporada_nueva = new Temporada('',this.a,this.a,'','',this.a);
       this.temporada_actual.estado_temporada = false;
-      this._temporadaService.editTemporadaSoloEstado(this.token,this.id_temporada_actual,this.temporada_actual)
-      .subscribe(
-        response =>{
-          if(!response.temporada){
+      this._temporadaService.editTemporadaSoloEstado(this.token, this.id_temporada_actual, this.temporada_actual)
+        .subscribe(
+        response => {
+          if (!response.temporada) {
             console.log("No se ha actualizado la TEMPORADA anterior ERROR");
-          }else{
+          } else {
             console.log(response.temporada);
             console.log("El estado de la temporada actual a cambiado a false +++++++++ ");
             this.ActualizarNormalmente(this.idEditar);
@@ -141,36 +141,48 @@ export class EditarTemporadaComponent implements OnInit {
         error => {
           console.log("Error");
         }
-      );
+        );
     } else {
       console.log('Actualizar normalmente');
       this.ActualizarNormalmente(this.idEditar);
     }
   }
 
-  ActualizarNormalmente(id){
-      //this.temporada_nueva = new Temporada('',this.a,this.a,'','',this.a);
-      this._temporadaService.updatetemporada(this.url + 'temporada/actualizar/' + id ,
-        this.temporada_nueva, this.filesToUpload, this.token, 'url_reglamento_temporada')
-        .then(response => {
-          if (response) {
-            //this.notificacion.emit("Noticia actualizada");
-            console.log(response);
-            swal(
-              '¡Modificado!',
-              'Los cambios se guardaron con exito.',
-              'success'
-            )
-          }
-        }
-        ).catch((e) => {
+  setProperty(inChecked: boolean) {
+    this.temporada_nueva.estado_temporada= inChecked;
+    if (inChecked == true) {
+      swal({
+        title: '¿Está seguro?',
+        text: "Al marcar la temporada como actual, sera la prederminada para los usuarios en general",
+        type: 'warning',
+        timer: 3500
+      });
+    }
+  }
+
+  ActualizarNormalmente(id) {
+    //this.temporada_nueva = new Temporada('',this.a,this.a,'','',this.a);
+    this._temporadaService.updatetemporada(this.url + 'temporada/actualizar/' + id,
+      this.temporada_nueva, this.filesToUpload, this.token, 'url_reglamento_temporada')
+      .then(response => {
+        if (response) {
+          //this.notificacion.emit("Noticia actualizada");
+          console.log(response);
           swal(
-            'Oops...',
-            '¡Algo salio mal,no encontramos la temporada, pruebe despues de un momento!',
-            'error'
+            '¡Modificado!',
+            'Los cambios se guardaron con exito.',
+            'success'
           )
-          // console.log("La noticia no pudo ser actualizada, intente nuevamente.");
-        });
+        }
+      }
+      ).catch((e) => {
+        swal(
+          'Oops...',
+          '¡Algo salio mal,no encontramos la temporada, pruebe despues de un momento!',
+          'error'
+        )
+        // console.log("La noticia no pudo ser actualizada, intente nuevamente.");
+      });
 
   }
 

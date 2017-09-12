@@ -100,23 +100,28 @@
               <h3>{{categoriaTemporada.nombre_categoria}}</h3>
             </div>
             <div class="card-block">
-              <p class="card-text">Número de Equipos Participantes: {{categoriaTemporada.n_equipos_categoria}}</p>
+              <p class="card-text">
+                  Número de Equipos Participantes: {{categoriaTemporada.n_equipos_categoria}} <br>
+                  Número de Equipos Registrados : {{categoriaTemporada.codigo_equipo.length}} <br>
+                </p>
+                  <h3>Cupos Diponibles: ({{categoriaTemporada.n_equipos_categoria - categoriaTemporada.codigo_equipo.length}})</h3> 
                 <i class="fa fa-flag" aria-hidden="true"></i>
               <p class="card-text">Descripción: {{categoriaTemporada.observacion_categoria}}</p>
               
             </div>
             <div class="card-footer">
-              <a class="btn btn-warning" role="button" 
+              <a *ngIf="identity" class="btn btn-warning" role="button" 
               data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample"
               (click)="DatsoModificarCategoria(categoriaTemporada,categoriaTemporada._id)"
               >Modificar</a>
+              <button  *ngIf="identity" class="btn btn-success" type="submit" (click)="generarCalendario(categoriaTemporada,categoriaTemporada._id)">Generar Calendario</button>
               <!-- <a *ngIf="identity" class="btn btn-danger pull-right" href="#" role="button">Eliminar</a> -->
             </div>
           </div>
         </div>
   
   
-      <div class="col-lg-4 equipo" *ngIf="mostrar_formulario_inicial">
+      <div class="col-lg-4 equipo" *ngIf="mostrar_formulario_inicial && identity">
         <div class="card">
           <div class="card-header">
             <h3>Agregar una Nueva Categoria o Division</h3>
