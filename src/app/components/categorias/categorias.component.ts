@@ -41,7 +41,7 @@ export class CategoriasComponent implements OnInit {
   ) {
     this.url = GLOBAL.url;
     this.token = this._userService.getToken();
-    this.categoria = new Categoria('', 0, '', '', false, this.array);
+    this.categoria = new Categoria('','', 0, '', '', false, this.array);
    }
 
   ngOnInit() {
@@ -123,7 +123,7 @@ export class CategoriasComponent implements OnInit {
             '',
             'success'
             );
-            this.categoria = new Categoria('', 0, '', '', false, this.array);
+            this.categoria = new Categoria('','', 0, '', '', false, this.array);
             // this.guardado = false;
         }
       },
@@ -154,7 +154,7 @@ export class CategoriasComponent implements OnInit {
             '',
             'success'
             );
-            this.categoria = new Categoria('', 0, '', '', false, this.array);
+            this.categoria = new Categoria('','', 0, '', '', false, this.array);
             // this.guardado = false;
             this.titulo = 'Nueva Categoria';
             this.idModifcar = '';

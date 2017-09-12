@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-<<<<<<< HEAD
 import{HttpModule,Http,Response,Headers,RequestOptions} from '@angular/http';
 import 'rxjs/add/operator/map';
 import{Observable} from 'rxjs/Observable';
@@ -44,21 +43,6 @@ export class CategoriaService {
     return this._http.get(this.url+'categoria/',options)
     .map(res => res.json());
   }
-}
-=======
-import { HttpModule, Http, Response, Headers } from '@angular/http';
-import 'rxjs/add/operator/map';
-import { Observable } from 'rxjs/Observable';
-import { GLOBAL } from './global';
-
-import { Categoria } from '../models/categoria.model';
-
-@Injectable()
-export class CategoriaService {
-  public url: string;
-  constructor(private _http: Http) {
-    this.url = GLOBAL.url;
-  }
 
   getCategorias() {
     let headers = new Headers({
@@ -89,6 +73,10 @@ export class CategoriaService {
     return this._http.put(this.url + 'categoria/actualizar/' + id, params, { headers: headers })
       .map(res => res.json());
   }
-
 }
->>>>>>> e31b486b5079eb01f3791c9c35ea67795424eecb
+
+
+
+
+
+
