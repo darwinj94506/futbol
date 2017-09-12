@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { TemporadaService } from '../../services/temporada.service';
 import { UserService } from '../../services/user.service';
+import { CategoriaService } from '../../services/categoria.service';
 
 import { GLOBAL } from '../../services/global';
 
@@ -29,7 +30,8 @@ export class CategoriasComponent implements OnInit {
     private _userService: UserService,
     private _route: ActivatedRoute,
     private _router: Router,
-    private _temporadaService: TemporadaService
+    private _temporadaService: TemporadaService,
+    private _categoriaService: CategoriaService
   ) {
     this.url = GLOBAL.url;
     this.categoria = new Categoria('',0,'','',false,['']);
@@ -52,6 +54,7 @@ export class CategoriasComponent implements OnInit {
               this.mostrar_formulario_inicial = true;
             }
           });
+        this.CategoriasTemporada(this.temporada_actual._id);
         }
       },
       error => {
@@ -62,6 +65,34 @@ export class CategoriasComponent implements OnInit {
         }
       }
     );
+  }
+
+  CategoriasTemporada(id:string){
+    this._categoriaService.getCategorias().subscribe(
+      response => {
+        if (!response){
+          console.log("No existen categorias");
+        }else{
+          let i=0;
+          for (var index = 0; index < response.length; index++) {
+            // console.log("alo 1 "+ response[index].id_temporada + "id: "+ id) ;
+            if( response[index].id_temporada == id){
+              console.log(" Id de la temporada en categoria "+response[index].id_temporada);
+              this.categorias = response[index];
+              i++
+            }
+          }
+          console.log(response);
+          console.log(this.categorias)
+        }
+      },
+      error => {
+        var errorMessage = <any>error;
+        if (errorMessage != null) {
+          var body = JSON.parse(error._body);
+          console.log(body);
+        }
+        });
   }
 
 }
