@@ -33,6 +33,7 @@ import {EquipoService} from './services/equipo.service';
 import {TemporadaService} from './services/temporada.service';
 import {PersonalService} from './services/personal.service';
 import {CategoriaService} from './services/categoria.service';
+import {EstadioService} from './services/estadio.service';
 
 //rutas
 import{RoutingModule} from './app.routing';
@@ -82,7 +83,7 @@ import { EditarTemporadaComponent } from './components/temporada/ver-temporada/e
   
   ],
   providers: [
-    UserService,NoticiaService,EquipoService,TemporadaService,PersonalService,CategoriaService,
+    UserService,NoticiaService,EquipoService,TemporadaService,PersonalService,CategoriaService,EstadioService,
     //para la fecha en español
     {provide:LOCALE_ID,useValue:'es'}
   ],

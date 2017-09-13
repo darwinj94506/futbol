@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { EstadioService } from '../../services/estadio.service';
 
 import { Estadio } from '../../models/estadio.model';
 
@@ -11,12 +12,30 @@ export class EstadiosComponent implements OnInit {
 
   public titulo = 'Agregar Nuevo Estadio';
   public estadio_nuevo: Estadio;
-  constructor() { 
-    this.estadio_nuevo = new Estadio('', '', '', '', '' , true);
+  public estadios: Estadio[];
+  constructor(
+    private _estadioService: EstadioService
+  ) { 
+    // this.estadio_nuevo = new Estadio('', '', '', '', '' , true);
   }
 
   ngOnInit() {
+    this.obtenerEstadios();
   }
+
+  obtenerEstadios(){
+  this._estadioService.getEstadios().subscribe(
+    response =>{
+      if(!response){
+        console.log("Error al traer estadios");
+      }else{
+        this.estadios = response;
+      }
+    },
+    error =>{
+
+    });
+}
 
 
   /*
