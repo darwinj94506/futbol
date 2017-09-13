@@ -15,8 +15,8 @@
       <div class="card-block">
         <h4 class="card-title">{{item.nombre_temporada}}</h4>
         <p>
-          <strong>Fecha de Inicio: {{item.fecha_inicio}} </strong><br>
-          <strong>Fecha Fin:{{item.fecha_fin}} </strong>
+          <strong>Fecha de Inicio: {{item.fecha_inicio |date}} </strong><br>
+          <strong>Fecha Fin:{{item.fecha_fin |date}} </strong>
         </p>
       <div *ngIf="(item.estado_temporada) == false">
           <p>Temporada marcada como actual: <i class="fa fa-times" aria-hidden="true"></i></p>

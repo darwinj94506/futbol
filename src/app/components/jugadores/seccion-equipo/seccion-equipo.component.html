@@ -16,16 +16,23 @@
               </div>
 
 <br>
-<div class="card mb-3" *ngIf="equipo">
+<div class="card mb-3 text-center" *ngIf="equipo">
         <div class="card-header">
                 <h4 class="card-title">{{equipo.nombre_equipo}}</h4>
         </div>
-        <img class="rounded-circle imgcenter" src="assets/popper/docs/images/delfin.png" alt="Generic placeholder image" width="140"
+        <img class="rounded-circle imgcenter" src="{{ url + 'equipo/imagen/' + equipo.escudo_equipo}}" alt="Generic placeholder image" width="140"
         height="140">
         <div class="card-body">
-          <p class="card-text">{{equipo.observacion_equipo}}</p>
-          <p class="card-text">{{equipo.color_principal_equipo}}</p>
-          <p class="card-text">{{equipo.color_secundario_equipo}}</p>
-          <p class="card-text"><small class="text-muted">{{equipo.anio_fundacion_equipo | date:'dd - MMMM - yyyy'}}</small></p>
+          <p class="card-text"> <strong> Descripcion General: </strong> {{equipo.descripcion_equipo}}</p>
+          <div class="row">
+                  <div class="col-6">
+                        <p class="card-text"> <strong>Color Principal: </strong> {{equipo.color_principal_equipo}}</p>
+                  </div>
+                  <div class="col-6">
+                        <p class="card-text"> <strong>Color Secundario: </strong> {{equipo.color_secundario_equipo}}</p>
+                  </div>
+          </div>
+          <p class="card-text"> <strong>Observaciones: </strong> {{equipo.observacion_equipo}}</p>
+          <small class="text-muted">Año de fundación: {{equipo.anio_fundacion_equipo}}</small>
         </div>
 </div>
