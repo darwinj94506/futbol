@@ -5,68 +5,36 @@
     </h3>
     <hr>
     <ul class="nav nav-tabs nav-fill " role="tablist">
-      <li class="nav-item">
-        <a class="nav-link active" href="#1" role="tab" data-toggle="tab"><i class="fa fa-futbol-o" aria-hidden="true"></i> Maxima</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#2" role="tab" data-toggle="tab"><i class="fa fa-trophy" aria-hidden="true"></i> Primera A</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#3" role="tab" data-toggle="tab">Primera B</a>
+      <li class="nav-item" *ngFor="let categoria of arrayCategoria;let i = index;">
+        <a class="nav-link active" [href]="'#'+categoria._id" (click)="onClass(i)" role="tab" data-toggle="tab"><i class="fa fa-futbol-o" aria-hidden="true"></i> {{categoria.nombre_categoria}}</a>
       </li>
     </ul>
     
     <!-- Tab panes -->
     <div class="tab-content ">
-      <div role="tabpanel" class="tab-pane fade show active" id="1">
-          <br>
-        <table class="table">
-          <thead class="table-sm table-inverse">
-            <tr>
-              <th>#</th>
-              <th>Equipo</th>
-              <th class="numeric">PJ</th>
-              <th class="numeric">PG</th>
-              <th class="numeric">PE</th>
-              <th class="numeric">PP</th>
-              <th class="numeric">GF</th>
-              <th class="numeric">GC</th>
-              <th class="numeric">GD</th>
-              <th class="numeric">PTS</th>
-              <th class="numeric">SC</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr class="table-success">
-              <th scope="row">1</th>
-              <td> <a href="">Liga de QUito</a></td>
-              <td>0</td>
-              <td>0</td>
-              <td>0</td>
-              <td>0</td>
-              <td>0</td>
-              <td>0</td>
-              <td>0</td>
-              <td>0</td>
-              <td>0</td>
-            </tr>
-            <tr>
-                <th scope="row">2</th>
-                <td>Liga de QUito 2</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-              </tr>
-              
-              <tr class="table-danger">
-                  <th scope="row">3</th>
-                  <td >Liga de QUito 3</td>
+      <div *ngFor="let categoria of arrayCategoria">
+          <div role="tabpanel"  class="tab-pane fade active" *ngIf="cClass[i]==i"  [id]="categoria._id">
+              <br>
+            <table class="table">
+              <thead class="table-sm table-inverse">
+                <tr>
+                  <th>#</th>
+                  <th>Equipo</th>
+                  <th class="numeric">PJ</th>
+                  <th class="numeric">PG</th>
+                  <th class="numeric">PE</th>
+                  <th class="numeric">PP</th>
+                  <th class="numeric">GF</th>
+                  <th class="numeric">GC</th>
+                  <th class="numeric">GD</th>
+                  <th class="numeric">PTS</th>
+                  <th class="numeric">SC</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="table-success">
+                  <th scope="row">1</th>
+                  <td> <a href="">Liga de QUito</a></td>
                   <td>0</td>
                   <td>0</td>
                   <td>0</td>
@@ -78,35 +46,64 @@
                   <td>0</td>
                 </tr>
                 <tr>
-                  <th scope="row">4</th>
-                  <td>Barcelona</td>
-                  <td>0</td>
-                  <td>0</td>
-                  <td>0</td>
-                  <td>0</td>
-                  <td>0</td>
-                  <td>0</td>
-                  <td>0</td>
-                  <td>0</td>
-                  <td>0</td>
-                </tr>
-                <tr>
-                  <th scope="row">2</th>
-                  <td>Emelec </td>
-                  <td>0</td>
-                  <td>0</td>
-                  <td>0</td>
-                  <td>0</td>
-                  <td>0</td>
-                  <td>0</td>
-                  <td>0</td>
-                  <td>0</td>
-                  <td>0</td>
-                </tr>
-          </tbody>
-        </table>
+                    <th scope="row">2</th>
+                    <td>Liga de QUito 2</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                  </tr>
+                  
+                  <tr class="table-danger">
+                      <th scope="row">3</th>
+                      <td >Liga de QUito 3</td>
+                      <td>0</td>
+                      <td>0</td>
+                      <td>0</td>
+                      <td>0</td>
+                      <td>0</td>
+                      <td>0</td>
+                      <td>0</td>
+                      <td>0</td>
+                      <td>0</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">4</th>
+                      <td>Barcelona</td>
+                      <td>0</td>
+                      <td>0</td>
+                      <td>0</td>
+                      <td>0</td>
+                      <td>0</td>
+                      <td>0</td>
+                      <td>0</td>
+                      <td>0</td>
+                      <td>0</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">2</th>
+                      <td>Emelec </td>
+                      <td>0</td>
+                      <td>0</td>
+                      <td>0</td>
+                      <td>0</td>
+                      <td>0</td>
+                      <td>0</td>
+                      <td>0</td>
+                      <td>0</td>
+                      <td>0</td>
+                    </tr>
+              </tbody>
+            </table>
+          </div>
       </div>
-      <div role="tabpanel" class="tab-pane fade" id="2">
+
+      <!-- <div role="tabpanel" class="tab-pane fade" id="2">
           <br>
           <table class="table table-striped">
             <thead>
@@ -175,6 +172,6 @@
               </tr>
             </tbody>
           </table>
-      </div>
+      </div> -->
     </div>
   </div>

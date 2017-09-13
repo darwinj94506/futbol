@@ -1,22 +1,16 @@
-import { Component,Input,Output,OnInit,DoCheck,OnChanges,EventEmitter } from '@angular/core';
+import { Component,Input,Output,OnInit,DoCheck,EventEmitter } from '@angular/core';
 import{Equipo} from '../../../models/equipo.model';
-import {UserService} from '../../../services/user.service';
-
 @Component({
   selector: 'app-seccion-personal-equipo',
   templateUrl: './seccion-personal-equipo.component.html',
   styleUrls: ['./seccion-personal-equipo.component.css']
 })
-export class SeccionPersonalEquipoComponent implements OnInit,OnChanges {
+export class SeccionPersonalEquipoComponent implements OnInit,DoCheck {
   @Output() emitir=new EventEmitter();
   @Input() equip:Equipo;
   public personal:any[];
-  public identity;
 
-  constructor(
-    private _userService : UserService
-  ) { 
-    this.identity = this._userService.getIdentity();
+  constructor() { 
     
     // this.personal=this.equipo.personal_equipo;
   }
@@ -30,20 +24,15 @@ export class SeccionPersonalEquipoComponent implements OnInit,OnChanges {
       'mostrarAgregarPersonal':true
       }
     );
+
   }
-  // ngDoCheck(){
-  //   console.log("seccion equipo");
-  //   console.log(this.equip);
-  //   this.personal=this.equip.personal_equipo;
-  //   console.log("este es el personal");
-  //   console.log(this.personal);
-    
-  // }
-  ngOnChanges(){
+  ngDoCheck(){
+    console.log("seccion equipo");
+    console.log(this.equip);
     this.personal=this.equip.personal_equipo;
-    this.emitir.emit({
-      'mostrarAgregarPersonal':false      
-    })
+    console.log("este es el personal");
+    console.log(this.personal);
+    
   }
 
 }

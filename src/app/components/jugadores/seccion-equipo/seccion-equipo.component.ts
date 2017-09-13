@@ -1,16 +1,12 @@
 import { Component,DoCheck,Output,EventEmitter, OnInit } from '@angular/core';
 import{EquipoService} from '../../../services/equipo.service';
 import { Equipo } from '../../../models/equipo.model';
-import { GLOBAL } from '../../../services/global';
-
 @Component({
   selector: 'app-seccion-equipo',
   templateUrl: './seccion-equipo.component.html',
   styleUrls: ['./seccion-equipo.component.css']
 })
 export class SeccionEquipoComponent implements OnInit,DoCheck {
-
-  public url;
 
   public equipos:Equipo[];
   public equipo;
@@ -22,7 +18,6 @@ export class SeccionEquipoComponent implements OnInit,DoCheck {
   constructor(
        private _ES:EquipoService
   ) {
-    this.url = GLOBAL.url;
     //  this.equipo=new Equipo('','',0,'','','','',null,true,null);
    }
 

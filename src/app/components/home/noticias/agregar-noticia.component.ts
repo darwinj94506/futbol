@@ -1,8 +1,8 @@
 import { Component, OnInit ,Output,EventEmitter} from '@angular/core';
 import {User} from '../../../models/user.model';
 import {Noticia} from '../../../models/noticia.model';
-import {NoticiaService} from '../../../services/noticia.service';
-import {UserService} from '../../../services/user.service';
+import {NoticiaService} from '../../../services/noticia.service'
+import {UserService} from '../../../services/user.service'
 import swal from 'sweetalert2';
 import { GLOBAL } from '../../../services/global';
 @Component({

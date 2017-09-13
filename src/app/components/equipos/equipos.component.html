@@ -1,27 +1,6 @@
 <br><br>
 <div class="container marketing">
   <div class="row">
-    <div class="col-lg-4 equipo">
-      <div class="card">
-        <div class="card-header">
-          <h3>Delfin Sporting Club</h3>
-        </div>
-        <div class="card-block">
-          <img class="rounded-circle imgcenter" src="assets/popper/docs/images/delfin.png" alt="Generic placeholder image" width="140"
-            height="140">
-          <br>
-          <p class="card-text">Año de Fundación: 2017</p>
-          <p><a class="btn btn-primary" href="#" role="button">Ver más detalles &raquo;</a></p>
-        </div>
-        <div class="card-footer">
-          <small class="text-muted">Presidente: Juan Manuel Zoto Zoto</small>
-          <p>Presidente: Juan Manuel Zoto Zoto</p>
-          <a *ngIf="identity" class="btn btn-warning pull-left" href="#" role="button">Modificar</a>
-          <a *ngIf="identity" class="btn btn-danger pull-right" href="#" role="button">Eliminar</a>
-        </div>
-      </div>
-    </div>
-
     <div class="col-lg-4 equipo" *ngFor="let equi of equipos; let i = index">
         <div class="card">
           <div class="card-header">
@@ -133,36 +112,6 @@
               </div>
             </div>
           </div>
-          <!-- sdfghjkl -->
-          <div class="row">
-              <div class="col-md-6">
-
-                  <div class="form-group">
-                      <div class="input-group mb-2 mr-sm-2 mb-sm-0">
-                        <div class="input-group-addon frm-addon" style="width: 2.6rem"><i class="fa fa-map" aria-hidden="true"></i></div>
-                        <textarea type="text" class="form-control" name="" placeholder="Descripción General"
-                        #descripcion_equipo="ngModel" [(ngModel)]="nuevo_equipo.descripcion_equipo">
-                        </textarea>
-                      </div>
-                    </div>
-
-              </div>
-              <div class="col-md-6">
-                
-                  <div class="form-group">
-                      <div class="input-group mb-2 mr-sm-2 mb-sm-0">
-                        <div class="input-group-addon frm-addon" style="width: 2.6rem"><i class="fa fa-map" aria-hidden="true"></i></div>
-                        <textarea type="text" class="form-control" name="" placeholder="Observación del Equipo"
-                        #observacion_equipo="ngModel" [(ngModel)]="nuevo_equipo.observacion_equipo">
-                        </textarea>
-                      </div>
-                    </div>
-
-              </div>
-            </div>
-
-
-
           <!-- 3 -->
           <div class="row">
             <div class="col-md-6">
@@ -276,32 +225,6 @@
                 </div>
               </div>
             </div>
-            <div class="row">
-                <div class="col-md-6">
-  
-                    <div class="form-group">
-                        <div class="input-group mb-2 mr-sm-2 mb-sm-0">
-                          <div class="input-group-addon frm-addon" style="width: 2.6rem"><i class="fa fa-map" aria-hidden="true"></i></div>
-                          <textarea type="text" class="form-control" name="" placeholder="Descripción General"
-                          #descripcion_equipo="ngModel" [(ngModel)]="edicion_equipo.descripcion_equipo">
-                          </textarea>
-                        </div>
-                      </div>
-  
-                </div>
-                <div class="col-md-6">
-                  
-                    <div class="form-group">
-                        <div class="input-group mb-2 mr-sm-2 mb-sm-0">
-                          <div class="input-group-addon frm-addon" style="width: 2.6rem"><i class="fa fa-map" aria-hidden="true"></i></div>
-                          <textarea type="text" class="form-control" name="" placeholder="Observación del Equipo"
-                          #observacion_equipo="ngModel" [(ngModel)]="edicion_equipo.observacion_equipo">
-                          </textarea>
-                        </div>
-                      </div>
-  
-                </div>
-              </div>
             <!-- 3 -->
             <div class="row">
               <div class="col-md-6">

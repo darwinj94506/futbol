@@ -14,7 +14,6 @@ export class HomeComponent implements OnInit {
   public noticia_editar:any;
   public srcItem:any;
   public msgEvent:any;
-  public noticias:any;
   constructor() { }
   
   mostrarElemento(event){
@@ -22,7 +21,6 @@ export class HomeComponent implements OnInit {
     this.noticia_editar=event.mensaje.noticiaEditar;
     this.srcItem=event.srcItem;
     console.log("XXXXXXXXXXXXXXXXXXXXXXXXXXX");
-    
     console.log(this.noticia_editar);    
     console.log(event);
   }
@@ -43,12 +41,6 @@ export class HomeComponent implements OnInit {
     this.verElemento=event;
   }
   ngOnInit() {
-  }
-
-  recibirNoticiasDeVerNoticias(event){
-    this.noticias=event.noticas;
-    console.log("rrrrrrrrrrrrrrrrrrrrrr");
-    console.log(this.noticias);
   }
 
 }
