@@ -8,7 +8,7 @@ import{ReglamentoComponent} from './components/reglamento/reglamento.component';
 import{EstadiosComponent} from './components/estadios/estadios.component';
 import{CategoriasComponent} from './components/categorias/categorias.component';
 import{JugadoresComponent} from './components/jugadores/jugadores.component';
-
+import{DetalleEquipoComponent} from './components/equipos/detalle-equipo/detalle-equipo.component';
 
 
 
@@ -26,9 +26,9 @@ const adminRoutes:Routes=[
   {path:'estadios',component:EstadiosComponent}, 
   {path:'categorias',component:CategoriasComponent},            
   {path:'equipos',component:EquiposComponent},
+  {path:'detalle-equipo/:equi',component:DetalleEquipoComponent}, 
   {path:'temporada',component:TemporadaComponent},
   {path:'jugadores',component:JugadoresComponent},
-  
   {path:'',redirectTo:'home',pathMatch:'full'},
   {path:'**',component:HomeComponent}
 ];

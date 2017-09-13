@@ -59,6 +59,9 @@ export class EquiposComponent implements OnInit {
     
 
   }
+  guardarEquipoSeleccionado(equi){
+    localStorage.setItem('equipoSeleccionado',JSON.stringify(equi));
+  }
 
   ngOnInit() {
     this.obtenerequipos();
