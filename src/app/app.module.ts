@@ -35,6 +35,7 @@ import {EquipoService} from './services/equipo.service';
 import {TemporadaService} from './services/temporada.service';
 import {PersonalService} from './services/personal.service';
 import {CategoriaService} from './services/categoria.service';
+import {FechaService} from './services/fecha.service';
 
 //rutas
 import{RoutingModule} from './app.routing';
@@ -86,7 +87,7 @@ import { DetalleEquipoComponent } from './components/equipos/detalle-equipo/deta
   
   ],
   providers: [
-    UserService,NoticiaService,EquipoService,TemporadaService,PersonalService,CategoriaService,
+    UserService,NoticiaService,EquipoService,TemporadaService,PersonalService,CategoriaService,FechaService,
     //para la fecha en español
     {provide:LOCALE_ID,useValue:'es'}
   ],

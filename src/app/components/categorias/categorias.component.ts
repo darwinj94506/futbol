@@ -3,11 +3,13 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
 import { TemporadaService } from '../../services/temporada.service';
 import { UserService } from '../../services/user.service';
 import { CategoriaService } from '../../services/categoria.service';
+import { FechaService } from './../../services/fecha.service';
 
 import { GLOBAL } from '../../services/global';
 
 import { Categoria } from '../../models/categoria.model';
 import { Temporada } from '../../models/temporada.models';
+
 
 import swal from 'sweetalert2';
 
@@ -38,7 +40,8 @@ export class CategoriasComponent implements OnInit {
     private _route: ActivatedRoute,
     private _router: Router,
     private _temporadaService: TemporadaService,
-    private _categoriaService: CategoriaService
+    private _categoriaService: CategoriaService,
+    private _fechaService: FechaService
   ) {
     this.url = GLOBAL.url;
     this.token = this._userService.getToken();
@@ -127,7 +130,7 @@ export class CategoriasComponent implements OnInit {
             '',
             'success'
             );
-            this.categoria = new Categoria('', '', 0, '', '', false, this.array);
+            this.categoria = new Categoria('','', 0, '', '', false, this.array);            
             this.obtenerTemporadas();
         }
       },
@@ -177,13 +180,26 @@ export class CategoriasComponent implements OnInit {
   generarCalendario(categoria: Categoria, id: string ){
     // let cupoDisponible = categoria.n_equipos_categoria - categoria.codigo_equipo.length;
     // console.log(cupoDisponible);
+    // equipos[],idCategoria,segunda_vuelta(true|false)
     if ( (categoria.n_equipos_categoria - categoria.codigo_equipo.length) === 0){
       console.log(categoria.codigo_equipo);
-      swal(
-        'El calendario ha sido generado',
-        'EXITOSAMENTE',
-        'success'
-        );
+      this._fechaService.generarCalendario(this.token,{equipos:categoria.codigo_equipo,id_categoria:id,segunda_vuelta:categoria.segunda_vuelta})
+      .subscribe((res)=>{
+        if(res){
+          swal(
+            'El calendario ha sido generado',
+            'EXITOSAMENTE',
+            'success'
+            );    
+        }else{
+          swal(
+            'Oops...',
+            '¡Algo salio mal, pruebe despues de un momento!',
+            'error'
+          )
+        }
+      });
+      
     }else {
       if( (categoria.n_equipos_categoria - categoria.codigo_equipo.length) < 0){
         swal(

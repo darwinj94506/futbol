@@ -1,5 +1,4 @@
-<div class="container">
-<div class="row">
+<div class="row posiciones">
         <!-- <div class="col-lg-8 tabla_posiciones" [ngSwitch]="verElemento"> -->
         <div class="col-lg-8" >
                 <app-seccion-equipo (mostrar)="mostrarDescripcionEquipo($event)"></app-seccion-equipo>
@@ -7,7 +6,8 @@
                         <app-nuevo-personal [IdEquipo]="equipo._id" *ngIf="verNuevoPersonal" ></app-nuevo-personal>
                 </div>
         </div>
-        <div class="col-lg-4 ">
+        <div class="col-lg-4 tabla_noticias">
+                <!-- <app-ver-noticias (mostrar)="mostrarElemento($event,noticiaEditar)" ></app-ver-noticias> -->
                 
                 <app-seccion-personal-equipo [equip]="equipo" (emitir)="mostrarNuevoPer($event)" *ngIf="verLista"></app-seccion-personal-equipo>
                 
